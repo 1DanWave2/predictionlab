@@ -50,7 +50,7 @@ Most prediction-market tooling sells alerts and signals. Almost none of it shows
 Requirements: Python 3.11+ (3.13 works), pip.
 
 ```bash
-git clone <this repo> predictionlab
+git clone https://github.com/1DanWave2/predictionlab.git
 cd predictionlab
 python3 -m venv .venv
 source .venv/bin/activate
