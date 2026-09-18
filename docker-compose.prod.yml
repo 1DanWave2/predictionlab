@@ -1,0 +1,13 @@
+services:
+  polymarket-bot:
+    build: .
+    container_name: polymarket-bot
+    env_file:
+      - .env
+    networks:
+      - n8n_default
+    restart: unless-stopped
+
+networks:
+  n8n_default:
+    external: true

@@ -1,0 +1,17 @@
+{
+  "event_type": "paper_trade_open_event",
+  "source": "polymarket_bot",
+  "emitted_at": "2026-04-14T10:16:45.234567+00:00",
+  "bot_mode": "paper_auto",
+  "order_id": 42,
+  "market_id": "0x1b2a8e0c3d4e5f6a7b8c9d0e1f2a3b4c5d",
+  "side": "BUY",
+  "strategy": "sports_strategy",
+  "price": 0.65,
+  "size": 5.0,
+  "quantity": 5.0,
+  "avg_price": 0.65,
+  "realized_pnl": 0.0,
+  "unrealized_pnl": 0.35,
+  "note": "Fair value 0.72 > current price 0.65, edge 7% exceeds threshold"
+}

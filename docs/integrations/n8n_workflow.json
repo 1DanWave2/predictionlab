@@ -1,0 +1,139 @@
+{
+  "name": "Polymarket Bot Main",
+  "nodes": [
+    {
+      "id": "wh1",
+      "name": "Webhook - Events from Python",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [200, 200],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "polymarket-events",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "vf1",
+      "name": "Verify Token & Format",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [440, 200],
+      "parameters": {
+        "jsCode": "const item = $input.first();\nconst headers = item.json.headers || {};\nconst body = item.json.body || item.json;\nconst token = headers['x-webhook-token'];\nconst expected = $env.N8N_WEBHOOK_SECRET;\nif (expected && token !== expected) {\n  throw new Error('Invalid webhook token');\n}\nconst e = body;\nconst t = e.event_type;\nlet text = '';\nif (t === 'signal_event') {\n  text = `\uD83D\uDCCA *Signal* [${e.strategy || ''}]\\nMarket: ${e.slug || e.market_id}\\nSide: ${e.side} @ ${e.price} (fair ${e.fair_price})\\nEdge: ${((e.edge||0)*100).toFixed(1)}%  Conf: ${((e.confidence||0)*100).toFixed(1)}%\\nBid/Ask: ${e.bid}/${e.ask}\\n${e.reason||''}`;\n} else if (t === 'paper_trade_open_event') {\n  text = `\u2705 *Trade Open* #${e.order_id}\\nMarket: ${e.market_id}\\n${e.side} ${e.size} @ ${e.price}\\nQty: ${e.quantity}  Avg: ${e.avg_price}\\nUnreal PnL: ${e.unrealized_pnl}\\n${e.note||''}`;\n} else if (t === 'paper_trade_close_event') {\n  text = `\uD83D\uDD34 *Trade Close* #${e.order_id}\\nMarket: ${e.market_id}\\n${e.side} ${e.size} @ ${e.price}\\nRealized \u0394: ${e.realized_pnl_delta}  Total: ${e.realized_pnl_total}\\n${e.note||''}`;\n} else if (t === 'risk_alert_event') {\n  text = `\u26A0\uFE0F *Risk Alert* (${e.severity})\\nMarket: ${e.market_id||'-'}\\nReason: ${e.reason}`;\n} else if (t === 'daily_report_event') {\n  text = `\uD83D\uDCC5 *Daily Report* ${e.report_date}\\nStatus: ${e.paused?'\u23F8\uFE0F PAUSED':'\uD83D\uDFE2 RUNNING'}\\nTrades: ${e.total_trades}  Open: ${e.open_positions}  Closed: ${e.closed_positions}\\nRealized: ${e.total_realized_pnl}  Unrealized: ${e.total_unrealized_pnl}\\nWin/Loss: ${e.winning_positions}/${e.losing_positions}\\nExposure: ${e.gross_exposure}`;\n} else {\n  text = `\u2139\uFE0F Unknown event_type=${t}\\n${JSON.stringify(e).slice(0,500)}`;\n}\nreturn [{ json: { text, event_type: t } }];"
+      }
+    },
+    {
+      "id": "tg1",
+      "name": "Send to Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [700, 200],
+      "parameters": {
+        "resource": "message",
+        "operation": "sendMessage",
+        "chatId": "={{ $env.TELEGRAM_CHAT_ID }}",
+        "text": "={{ $json.text }}",
+        "additionalFields": { "parse_mode": "Markdown" }
+      },
+      "credentials": { "telegramApi": { "id": "REPLACE_WITH_TELEGRAM_CRED_ID", "name": "Telegram Bot" } },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "rw1",
+      "name": "Respond OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [940, 200],
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { success: true, event_type: $json.event_type } }}"
+      }
+    },
+    {
+      "id": "tt1",
+      "name": "Telegram Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [200, 500],
+      "parameters": { "updates": ["message", "callback_query"], "additionalFields": {} },
+      "credentials": { "telegramApi": { "id": "REPLACE_WITH_TELEGRAM_CRED_ID", "name": "Telegram Bot" } }
+    },
+    {
+      "id": "pc1",
+      "name": "Parse Command",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [440, 500],
+      "parameters": {
+        "jsCode": "const j = $input.first().json;\nlet endpoint = '/webhook/telegram-command';\nlet payload = null;\nlet chatId = null;\nlet userId = null;\nif (j.message && j.message.text) {\n  const txt = j.message.text.trim();\n  const parts = txt.split(/\\s+/);\n  const cmd = parts[0].split('@')[0];\n  const args = {};\n  if (cmd === '/set_mode' && parts[1]) args.mode = parts[1];\n  chatId = String(j.message.chat.id);\n  userId = String(j.message.from.id);\n  payload = { command: cmd, args, user_id: userId, chat_id: chatId };\n} else if (j.callback_query) {\n  endpoint = '/webhook/telegram-callback';\n  chatId = String(j.callback_query.message.chat.id);\n  userId = String(j.callback_query.from.id);\n  payload = { action: j.callback_query.data, user_id: userId, chat_id: chatId };\n} else {\n  return [{ json: { skip: true, chatId: null } }];\n}\nreturn [{ json: { endpoint, payload, chatId, userId, skip: false } }];"
+      }
+    },
+    {
+      "id": "http1",
+      "name": "Forward to Python",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [700, 500],
+      "parameters": {
+        "method": "POST",
+        "url": "=http://host.docker.internal:8000{{ $json.endpoint }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "X-Webhook-Token", "value": "={{ $env.N8N_WEBHOOK_SECRET }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.payload) }}",
+        "options": {
+          "timeout": 30000,
+          "response": { "response": { "neverError": true } }
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 2000
+    },
+    {
+      "id": "fr1",
+      "name": "Format Python Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [940, 500],
+      "parameters": {
+        "jsCode": "const src = $('Parse Command').first().json;\nconst resp = $input.first().json;\nconst chatId = src.chatId;\nconst cmd = (src.payload && (src.payload.command || src.payload.action)) || 'unknown';\nif (!resp || resp.success === false) {\n  const err = (resp && resp.error) || 'request failed';\n  return [{ json: { chatId, text: `\u274C ${cmd}\\n${err}` } }];\n}\nconst data = resp.data;\nlet text = `\u2705 ${cmd}\\n`;\nif (cmd === '/status' && data) {\n  text += `Mode: ${data.mode}\\nPaused: ${data.paused}\\nOpen: ${data.open_positions ?? '-'}\\nLast tick: ${data.last_tick_at || 'never'}\\nError: ${data.last_error || 'none'}`;\n} else if ((cmd === '/positions' || cmd === 'POSITIONS') && Array.isArray(data)) {\n  if (!data.length) text += '(no positions)';\n  else text += data.map(p => `${p.market_id} | qty=${p.quantity} avg=${p.avg_price} u_pnl=${p.unrealized_pnl}`).join('\\n');\n} else if ((cmd === '/trades' || cmd === 'TRADES') && Array.isArray(data)) {\n  if (!data.length) text += '(no trades)';\n  else text += data.map(t => `#${t.id} ${t.side} ${t.market_id} ${t.size}@${t.price} [${t.status}]`).join('\\n');\n} else {\n  text += '```\\n' + JSON.stringify(data, null, 2).slice(0, 2000) + '\\n```';\n}\nreturn [{ json: { chatId, text } }];"
+      }
+    },
+    {
+      "id": "tg2",
+      "name": "Reply to Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [1200, 500],
+      "parameters": {
+        "resource": "message",
+        "operation": "sendMessage",
+        "chatId": "={{ $json.chatId }}",
+        "text": "={{ $json.text }}",
+        "additionalFields": { "parse_mode": "Markdown" }
+      },
+      "credentials": { "telegramApi": { "id": "REPLACE_WITH_TELEGRAM_CRED_ID", "name": "Telegram Bot" } },
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "connections": {
+    "Webhook - Events from Python": { "main": [[{ "node": "Verify Token & Format", "type": "main", "index": 0 }]] },
+    "Verify Token & Format": { "main": [[{ "node": "Send to Telegram", "type": "main", "index": 0 }]] },
+    "Send to Telegram": { "main": [[{ "node": "Respond OK", "type": "main", "index": 0 }]] },
+    "Telegram Trigger": { "main": [[{ "node": "Parse Command", "type": "main", "index": 0 }]] },
+    "Parse Command": { "main": [[{ "node": "Forward to Python", "type": "main", "index": 0 }]] },
+    "Forward to Python": { "main": [[{ "node": "Format Python Response", "type": "main", "index": 0 }]] },
+    "Format Python Response": { "main": [[{ "node": "Reply to Telegram", "type": "main", "index": 0 }]] }
+  },
+  "settings": { "executionOrder": "v1" }
+}

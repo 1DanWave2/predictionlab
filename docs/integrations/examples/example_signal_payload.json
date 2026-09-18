@@ -1,0 +1,20 @@
+{
+  "event_type": "signal_event",
+  "source": "polymarket_bot",
+  "emitted_at": "2026-04-14T10:15:32.123456+00:00",
+  "bot_mode": "paper_auto",
+  "market_id": "0x1b2a8e0c3d4e5f6a7b8c9d0e1f2a3b4c5d",
+  "slug": "will-btc-exceed-100k-by-eoy-2025",
+  "category": "crypto",
+  "strategy": "sports_strategy",
+  "side": "BUY",
+  "price": 0.65,
+  "fair_price": 0.72,
+  "edge": 0.07,
+  "confidence": 0.92,
+  "bid": 0.64,
+  "ask": 0.66,
+  "spread": 0.02,
+  "volume": 15000.5,
+  "reason": "Fair value 0.72 > current price 0.65, edge 7% exceeds threshold"
+}

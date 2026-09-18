@@ -1,0 +1,708 @@
+# Team aliases for sports market mapping
+# Format:
+#   <league>:
+#     <team_id>:
+#       canonical: "Full Team Name"
+#       aliases: [list of variants]
+#
+# Rule: aliases are matched case-insensitive, after stripping punctuation/whitespace.
+# Adding new team: ALWAYS check there is no overlap with existing aliases.
+# Tests: tests/test_sports_mapper.py validates dictionary correctness.
+
+nba:
+  nba_lakers:
+    canonical: "Los Angeles Lakers"
+    aliases: ["los angeles lakers", "la lakers", "lakers", "lal"]
+  nba_celtics:
+    canonical: "Boston Celtics"
+    aliases: ["boston celtics", "boston", "celtics", "bos"]
+  nba_warriors:
+    canonical: "Golden State Warriors"
+    aliases: ["golden state warriors", "golden state", "warriors", "gsw"]
+  nba_heat:
+    canonical: "Miami Heat"
+    aliases: ["miami heat", "miami", "heat", "mia"]
+  nba_knicks:
+    canonical: "New York Knicks"
+    aliases: ["new york knicks", "new york", "knicks", "nyk", "ny knicks"]
+  nba_bucks:
+    canonical: "Milwaukee Bucks"
+    aliases: ["milwaukee bucks", "milwaukee", "bucks", "mil"]
+  nba_nuggets:
+    canonical: "Denver Nuggets"
+    aliases: ["denver nuggets", "denver", "nuggets", "den"]
+  nba_suns:
+    canonical: "Phoenix Suns"
+    aliases: ["phoenix suns", "phoenix", "suns", "phx"]
+  nba_clippers:
+    canonical: "LA Clippers"
+    aliases: ["la clippers", "los angeles clippers", "clippers", "lac"]
+  nba_mavericks:
+    canonical: "Dallas Mavericks"
+    aliases: ["dallas mavericks", "dallas", "mavericks", "mavs", "dal"]
+  nba_76ers:
+    canonical: "Philadelphia 76ers"
+    aliases: ["philadelphia 76ers", "philadelphia", "76ers", "sixers", "phi"]
+  nba_thunder:
+    canonical: "Oklahoma City Thunder"
+    aliases: ["oklahoma city thunder", "oklahoma city", "thunder", "okc"]
+  nba_grizzlies:
+    canonical: "Memphis Grizzlies"
+    aliases: ["memphis grizzlies", "memphis", "grizzlies", "mem"]
+  nba_pelicans:
+    canonical: "New Orleans Pelicans"
+    aliases: ["new orleans pelicans", "new orleans", "pelicans", "nop"]
+  nba_kings:
+    canonical: "Sacramento Kings"
+    aliases: ["sacramento kings", "sacramento", "kings", "sac"]
+  nba_timberwolves:
+    canonical: "Minnesota Timberwolves"
+    aliases: ["minnesota timberwolves", "minnesota", "timberwolves", "wolves", "min"]
+  nba_rockets:
+    canonical: "Houston Rockets"
+    aliases: ["houston rockets", "houston", "rockets", "hou"]
+  nba_spurs:
+    canonical: "San Antonio Spurs"
+    aliases: ["san antonio spurs", "san antonio", "spurs", "sas"]
+  nba_jazz:
+    canonical: "Utah Jazz"
+    aliases: ["utah jazz", "utah", "jazz", "uta"]
+  nba_blazers:
+    canonical: "Portland Trail Blazers"
+    aliases: ["portland trail blazers", "portland", "trail blazers", "blazers", "por"]
+  nba_raptors:
+    canonical: "Toronto Raptors"
+    aliases: ["toronto raptors", "toronto", "raptors", "tor"]
+  nba_bulls:
+    canonical: "Chicago Bulls"
+    aliases: ["chicago bulls", "chicago", "bulls", "chi"]
+  nba_pistons:
+    canonical: "Detroit Pistons"
+    aliases: ["detroit pistons", "detroit", "pistons", "det"]
+  nba_pacers:
+    canonical: "Indiana Pacers"
+    aliases: ["indiana pacers", "indiana", "pacers", "ind"]
+  nba_cavaliers:
+    canonical: "Cleveland Cavaliers"
+    aliases: ["cleveland cavaliers", "cleveland", "cavaliers", "cavs", "cle"]
+  nba_hawks:
+    canonical: "Atlanta Hawks"
+    aliases: ["atlanta hawks", "atlanta", "hawks", "atl"]
+  nba_magic:
+    canonical: "Orlando Magic"
+    aliases: ["orlando magic", "orlando", "magic", "orl"]
+  nba_hornets:
+    canonical: "Charlotte Hornets"
+    aliases: ["charlotte hornets", "charlotte", "hornets", "cha"]
+  nba_wizards:
+    canonical: "Washington Wizards"
+    aliases: ["washington wizards", "washington", "wizards", "was"]
+  nba_nets:
+    canonical: "Brooklyn Nets"
+    aliases: ["brooklyn nets", "brooklyn", "nets", "bkn", "bro"]
+
+nhl:
+  nhl_avalanche:
+    canonical: "Colorado Avalanche"
+    aliases: ["colorado avalanche", "colorado", "avalanche", "avs", "col"]
+  nhl_oilers:
+    canonical: "Edmonton Oilers"
+    aliases: ["edmonton oilers", "edmonton", "oilers", "edm"]
+  nhl_panthers:
+    canonical: "Florida Panthers"
+    aliases: ["florida panthers", "florida", "panthers", "fla"]
+  nhl_rangers:
+    canonical: "New York Rangers"
+    aliases: ["new york rangers", "ny rangers", "rangers", "nyr"]
+  nhl_lightning:
+    canonical: "Tampa Bay Lightning"
+    aliases: ["tampa bay lightning", "tampa bay", "tampa", "lightning", "bolts", "tbl"]
+  nhl_canes:
+    canonical: "Carolina Hurricanes"
+    aliases: ["carolina hurricanes", "carolina", "hurricanes", "canes", "car"]
+  nhl_stars:
+    canonical: "Dallas Stars"
+    aliases: ["dallas stars", "stars", "dal"]
+  nhl_jets:
+    canonical: "Winnipeg Jets"
+    aliases: ["winnipeg jets", "winnipeg", "jets", "wpg"]
+  nhl_kings:
+    canonical: "Los Angeles Kings"
+    aliases: ["los angeles kings", "la kings", "kings", "lak"]
+  nhl_canucks:
+    canonical: "Vancouver Canucks"
+    aliases: ["vancouver canucks", "vancouver", "canucks", "van"]
+  nhl_bruins:
+    canonical: "Boston Bruins"
+    aliases: ["boston bruins", "bruins", "bos"]
+  nhl_leafs:
+    canonical: "Toronto Maple Leafs"
+    aliases: ["toronto maple leafs", "toronto", "maple leafs", "leafs", "tor"]
+  nhl_capitals:
+    canonical: "Washington Capitals"
+    aliases: ["washington capitals", "washington", "capitals", "caps", "wsh"]
+  nhl_islanders:
+    canonical: "New York Islanders"
+    aliases: ["new york islanders", "ny islanders", "islanders", "isles", "nyi"]
+  nhl_devils:
+    canonical: "New Jersey Devils"
+    aliases: ["new jersey devils", "new jersey", "devils", "njd"]
+  nhl_flyers:
+    canonical: "Philadelphia Flyers"
+    aliases: ["philadelphia flyers", "philadelphia", "flyers", "phi"]
+  nhl_penguins:
+    canonical: "Pittsburgh Penguins"
+    aliases: ["pittsburgh penguins", "pittsburgh", "penguins", "pens", "pit"]
+  nhl_sabres:
+    canonical: "Buffalo Sabres"
+    aliases: ["buffalo sabres", "buffalo", "sabres", "buf"]
+  nhl_senators:
+    canonical: "Ottawa Senators"
+    aliases: ["ottawa senators", "ottawa", "senators", "sens", "ott"]
+  nhl_canadiens:
+    canonical: "Montreal Canadiens"
+    aliases: ["montreal canadiens", "montreal", "canadiens", "habs", "mtl"]
+  nhl_red_wings:
+    canonical: "Detroit Red Wings"
+    aliases: ["detroit red wings", "detroit", "red wings", "wings", "det"]
+  nhl_blue_jackets:
+    canonical: "Columbus Blue Jackets"
+    aliases: ["columbus blue jackets", "columbus", "blue jackets", "cbj"]
+  nhl_blackhawks:
+    canonical: "Chicago Blackhawks"
+    aliases: ["chicago blackhawks", "chicago", "blackhawks", "hawks", "chi"]
+  nhl_predators:
+    canonical: "Nashville Predators"
+    aliases: ["nashville predators", "nashville", "predators", "preds", "nsh"]
+  nhl_blues:
+    canonical: "St. Louis Blues"
+    aliases: ["st. louis blues", "st louis blues", "blues", "stl"]
+  nhl_wild:
+    canonical: "Minnesota Wild"
+    aliases: ["minnesota wild", "minnesota", "wild", "min"]
+  nhl_sharks:
+    canonical: "San Jose Sharks"
+    aliases: ["san jose sharks", "san jose", "sharks", "sjs"]
+  nhl_ducks:
+    canonical: "Anaheim Ducks"
+    aliases: ["anaheim ducks", "anaheim", "ducks", "ana"]
+  nhl_coyotes:
+    canonical: "Utah Hockey Club"
+    aliases: ["utah hockey club", "utah hc", "uhc", "utah"]
+  nhl_knights:
+    canonical: "Vegas Golden Knights"
+    aliases: ["vegas golden knights", "vegas", "golden knights", "knights", "vgk"]
+  nhl_flames:
+    canonical: "Calgary Flames"
+    aliases: ["calgary flames", "calgary", "flames", "cgy"]
+  nhl_kraken:
+    canonical: "Seattle Kraken"
+    aliases: ["seattle kraken", "seattle", "kraken", "sea"]
+
+# UFC top fighters. Polymarket format: "UFC Fight Night: Prates vs. Maddalena (Welterweight, Main Card)"
+# или "UFC 305: Adesanya vs. Du Plessis"
+ufc:
+  ufc_makhachev:
+    canonical: "Islam Makhachev"
+    aliases: ["islam makhachev", "makhachev"]
+  ufc_topuria:
+    canonical: "Ilia Topuria"
+    aliases: ["ilia topuria", "topuria"]
+  ufc_oliveira:
+    canonical: "Charles Oliveira"
+    aliases: ["charles oliveira", "oliveira", "do bronx"]
+  ufc_volkanovski:
+    canonical: "Alexander Volkanovski"
+    aliases: ["alexander volkanovski", "volkanovski", "volk"]
+  ufc_pereira:
+    canonical: "Alex Pereira"
+    aliases: ["alex pereira", "pereira", "poatan"]
+  ufc_jones:
+    canonical: "Jon Jones"
+    aliases: ["jon jones", "jones", "bones"]
+  ufc_aspinall:
+    canonical: "Tom Aspinall"
+    aliases: ["tom aspinall", "aspinall"]
+  ufc_dvalishvili:
+    canonical: "Merab Dvalishvili"
+    aliases: ["merab dvalishvili", "dvalishvili", "merab"]
+  ufc_omalley:
+    canonical: "Sean O'Malley"
+    aliases: ["sean o'malley", "sean omalley", "o'malley", "omalley", "sugar"]
+  ufc_dupless:
+    canonical: "Dricus Du Plessis"
+    aliases: ["dricus du plessis", "du plessis", "ddp", "dricus"]
+  ufc_strickland:
+    canonical: "Sean Strickland"
+    aliases: ["sean strickland", "strickland"]
+  ufc_adesanya:
+    canonical: "Israel Adesanya"
+    aliases: ["israel adesanya", "adesanya", "izzy"]
+  ufc_chimaev:
+    canonical: "Khamzat Chimaev"
+    aliases: ["khamzat chimaev", "chimaev", "khamzat"]
+  ufc_costa:
+    canonical: "Paulo Costa"
+    aliases: ["paulo costa", "costa"]
+  ufc_whittaker:
+    canonical: "Robert Whittaker"
+    aliases: ["robert whittaker", "whittaker", "bobby knuckles"]
+  ufc_edwards:
+    canonical: "Leon Edwards"
+    aliases: ["leon edwards", "edwards", "rocky"]
+  ufc_covington:
+    canonical: "Colby Covington"
+    aliases: ["colby covington", "covington"]
+  ufc_burns:
+    canonical: "Gilbert Burns"
+    aliases: ["gilbert burns", "burns", "durinho"]
+  ufc_maddalena:
+    canonical: "Jack Della Maddalena"
+    aliases: ["jack della maddalena", "della maddalena", "maddalena", "jdm"]
+  ufc_prates:
+    canonical: "Carlos Prates"
+    aliases: ["carlos prates", "prates"]
+  ufc_holland:
+    canonical: "Kevin Holland"
+    aliases: ["kevin holland", "holland", "trailblazer"]
+  ufc_garry:
+    canonical: "Ian Garry"
+    aliases: ["ian garry", "ian machado garry", "garry"]
+  ufc_buckley:
+    canonical: "Joaquin Buckley"
+    aliases: ["joaquin buckley", "buckley"]
+  ufc_pimblett:
+    canonical: "Paddy Pimblett"
+    aliases: ["paddy pimblett", "pimblett", "the baddy"]
+  ufc_chandler:
+    canonical: "Michael Chandler"
+    aliases: ["michael chandler", "chandler"]
+  ufc_gaethje:
+    canonical: "Justin Gaethje"
+    aliases: ["justin gaethje", "gaethje"]
+  ufc_holloway:
+    canonical: "Max Holloway"
+    aliases: ["max holloway", "holloway"]
+  ufc_poirier:
+    canonical: "Dustin Poirier"
+    aliases: ["dustin poirier", "poirier"]
+
+nfl:
+  nfl_chiefs:
+    canonical: "Kansas City Chiefs"
+    aliases: ["kansas city chiefs", "kansas city", "chiefs", "kc"]
+  nfl_eagles:
+    canonical: "Philadelphia Eagles"
+    aliases: ["philadelphia eagles", "philadelphia", "eagles", "phi"]
+  nfl_49ers:
+    canonical: "San Francisco 49ers"
+    aliases: ["san francisco 49ers", "san francisco", "49ers", "niners", "sf"]
+  nfl_cowboys:
+    canonical: "Dallas Cowboys"
+    aliases: ["dallas cowboys", "dallas", "cowboys", "dal"]
+  nfl_bills:
+    canonical: "Buffalo Bills"
+    aliases: ["buffalo bills", "buffalo", "bills", "buf"]
+  nfl_ravens:
+    canonical: "Baltimore Ravens"
+    aliases: ["baltimore ravens", "baltimore", "ravens", "bal"]
+  nfl_packers:
+    canonical: "Green Bay Packers"
+    aliases: ["green bay packers", "green bay", "packers", "gb"]
+  nfl_lions:
+    canonical: "Detroit Lions"
+    aliases: ["detroit lions", "detroit", "lions", "det"]
+  nfl_dolphins:
+    canonical: "Miami Dolphins"
+    aliases: ["miami dolphins", "miami", "dolphins", "mia"]
+  nfl_jets:
+    canonical: "New York Jets"
+    aliases: ["new york jets", "ny jets", "jets", "nyj"]
+  nfl_giants:
+    canonical: "New York Giants"
+    aliases: ["new york giants", "ny giants", "giants", "nyg"]
+  nfl_patriots:
+    canonical: "New England Patriots"
+    aliases: ["new england patriots", "new england", "patriots", "pats", "ne"]
+
+mlb:
+  mlb_dodgers:
+    canonical: "Los Angeles Dodgers"
+    aliases: ["los angeles dodgers", "la dodgers", "dodgers", "lad"]
+  mlb_yankees:
+    canonical: "New York Yankees"
+    aliases: ["new york yankees", "ny yankees", "yankees", "nyy"]
+  mlb_redsox:
+    canonical: "Boston Red Sox"
+    aliases: ["boston red sox", "red sox", "redsox", "bos"]
+  mlb_braves:
+    canonical: "Atlanta Braves"
+    aliases: ["atlanta braves", "atlanta", "braves", "atl"]
+  mlb_astros:
+    canonical: "Houston Astros"
+    aliases: ["houston astros", "houston", "astros", "hou"]
+  mlb_mets:
+    canonical: "New York Mets"
+    aliases: ["new york mets", "ny mets", "mets", "nym"]
+  mlb_phillies:
+    canonical: "Philadelphia Phillies"
+    aliases: ["philadelphia phillies", "phillies", "phi"]
+  mlb_cubs:
+    canonical: "Chicago Cubs"
+    aliases: ["chicago cubs", "cubs", "chc"]
+  mlb_giants:
+    canonical: "San Francisco Giants"
+    aliases: ["san francisco giants", "sf giants", "giants", "sf"]
+  mlb_padres:
+    canonical: "San Diego Padres"
+    aliases: ["san diego padres", "san diego", "padres", "sd"]
+  mlb_diamondbacks:
+    canonical: "Arizona Diamondbacks"
+    aliases: ["arizona diamondbacks", "arizona", "diamondbacks", "dbacks", "ari"]
+  mlb_orioles:
+    canonical: "Baltimore Orioles"
+    aliases: ["baltimore orioles", "baltimore", "orioles", "bal"]
+  mlb_rays:
+    canonical: "Tampa Bay Rays"
+    aliases: ["tampa bay rays", "tampa bay", "rays", "tb"]
+  mlb_blue_jays:
+    canonical: "Toronto Blue Jays"
+    aliases: ["toronto blue jays", "toronto", "blue jays", "jays", "tor"]
+  mlb_white_sox:
+    canonical: "Chicago White Sox"
+    aliases: ["chicago white sox", "white sox", "chw"]
+  mlb_guardians:
+    canonical: "Cleveland Guardians"
+    aliases: ["cleveland guardians", "cleveland", "guardians", "cle"]
+  mlb_tigers:
+    canonical: "Detroit Tigers"
+    aliases: ["detroit tigers", "detroit", "tigers", "det"]
+  mlb_royals:
+    canonical: "Kansas City Royals"
+    aliases: ["kansas city royals", "kansas city", "royals", "kc"]
+  mlb_twins:
+    canonical: "Minnesota Twins"
+    aliases: ["minnesota twins", "minnesota", "twins", "min"]
+  mlb_athletics:
+    canonical: "Athletics"
+    aliases: ["athletics", "oakland athletics", "oakland", "as", "oak"]
+  mlb_mariners:
+    canonical: "Seattle Mariners"
+    aliases: ["seattle mariners", "seattle", "mariners", "sea"]
+  mlb_rangers:
+    canonical: "Texas Rangers"
+    aliases: ["texas rangers", "texas", "rangers", "tex"]
+  mlb_angels:
+    canonical: "Los Angeles Angels"
+    aliases: ["los angeles angels", "la angels", "angels", "ana", "laa"]
+  mlb_marlins:
+    canonical: "Miami Marlins"
+    aliases: ["miami marlins", "miami", "marlins", "mia"]
+  mlb_nationals:
+    canonical: "Washington Nationals"
+    aliases: ["washington nationals", "washington", "nationals", "nats", "was"]
+  mlb_brewers:
+    canonical: "Milwaukee Brewers"
+    aliases: ["milwaukee brewers", "milwaukee", "brewers", "mil"]
+  mlb_cardinals:
+    canonical: "St. Louis Cardinals"
+    aliases: ["st. louis cardinals", "st louis cardinals", "cardinals", "stl"]
+  mlb_pirates:
+    canonical: "Pittsburgh Pirates"
+    aliases: ["pittsburgh pirates", "pittsburgh", "pirates", "pit"]
+  mlb_reds:
+    canonical: "Cincinnati Reds"
+    aliases: ["cincinnati reds", "cincinnati", "reds", "cin"]
+  mlb_rockies:
+    canonical: "Colorado Rockies"
+    aliases: ["colorado rockies", "colorado", "rockies", "col"]
+
+# ATP top players (singles). Names matched в формате "Last Name" или "First Last".
+# Polymarket title format: "Tournament: First Last vs First Last"
+# The Odds API возвращает "First Last" home/away.
+atp:
+  atp_alcaraz:
+    canonical: "Carlos Alcaraz"
+    aliases: ["carlos alcaraz", "alcaraz"]
+  atp_sinner:
+    canonical: "Jannik Sinner"
+    aliases: ["jannik sinner", "sinner"]
+  atp_djokovic:
+    canonical: "Novak Djokovic"
+    aliases: ["novak djokovic", "djokovic"]
+  atp_zverev:
+    canonical: "Alexander Zverev"
+    aliases: ["alexander zverev", "zverev", "sascha zverev"]
+  atp_medvedev:
+    canonical: "Daniil Medvedev"
+    aliases: ["daniil medvedev", "medvedev"]
+  atp_rublev:
+    canonical: "Andrey Rublev"
+    aliases: ["andrey rublev", "rublev"]
+  atp_tsitsipas:
+    canonical: "Stefanos Tsitsipas"
+    aliases: ["stefanos tsitsipas", "tsitsipas"]
+  atp_rune:
+    canonical: "Holger Rune"
+    aliases: ["holger rune", "rune"]
+  atp_ruud:
+    canonical: "Casper Ruud"
+    aliases: ["casper ruud", "ruud"]
+  atp_dimitrov:
+    canonical: "Grigor Dimitrov"
+    aliases: ["grigor dimitrov", "dimitrov"]
+  atp_fritz:
+    canonical: "Taylor Fritz"
+    aliases: ["taylor fritz", "fritz"]
+  atp_de_minaur:
+    canonical: "Alex de Minaur"
+    aliases: ["alex de minaur", "de minaur"]
+  atp_paul:
+    canonical: "Tommy Paul"
+    aliases: ["tommy paul", "tommy paul tennis"]
+  atp_korda:
+    canonical: "Sebastian Korda"
+    aliases: ["sebastian korda", "korda"]
+  atp_humbert:
+    canonical: "Ugo Humbert"
+    aliases: ["ugo humbert", "humbert"]
+  atp_arnaldi:
+    canonical: "Matteo Arnaldi"
+    aliases: ["matteo arnaldi", "arnaldi"]
+  atp_borges:
+    canonical: "Nuno Borges"
+    aliases: ["nuno borges", "borges"]
+  atp_giron:
+    canonical: "Marcos Giron"
+    aliases: ["marcos giron", "giron"]
+  atp_burruchaga:
+    canonical: "Roman Andres Burruchaga"
+    aliases: ["roman andres burruchaga", "burruchaga", "roman burruchaga"]
+  atp_coppejans:
+    canonical: "Kimmer Coppejans"
+    aliases: ["kimmer coppejans", "coppejans"]
+  atp_tiffon:
+    canonical: "Pol Martin Tiffon"
+    aliases: ["pol martin tiffon", "tiffon", "pol tiffon"]
+  atp_baez:
+    canonical: "Sebastian Baez"
+    aliases: ["sebastian baez", "baez"]
+  atp_cerundolo:
+    canonical: "Francisco Cerundolo"
+    aliases: ["francisco cerundolo", "cerundolo"]
+  atp_etcheverry:
+    canonical: "Tomas Martin Etcheverry"
+    aliases: ["tomas martin etcheverry", "etcheverry", "tomas etcheverry"]
+  atp_norrie:
+    canonical: "Cameron Norrie"
+    aliases: ["cameron norrie", "norrie"]
+  atp_evans:
+    canonical: "Daniel Evans"
+    aliases: ["daniel evans", "dan evans", "evans"]
+  atp_draper:
+    canonical: "Jack Draper"
+    aliases: ["jack draper", "draper"]
+  atp_nakashima:
+    canonical: "Brandon Nakashima"
+    aliases: ["brandon nakashima", "nakashima"]
+  atp_shapovalov:
+    canonical: "Denis Shapovalov"
+    aliases: ["denis shapovalov", "shapovalov"]
+  atp_auger:
+    canonical: "Felix Auger-Aliassime"
+    aliases: ["felix auger-aliassime", "felix auger aliassime", "auger-aliassime", "auger aliassime", "faa"]
+  atp_berrettini:
+    canonical: "Matteo Berrettini"
+    aliases: ["matteo berrettini", "berrettini"]
+  atp_hurkacz:
+    canonical: "Hubert Hurkacz"
+    aliases: ["hubert hurkacz", "hurkacz"]
+  atp_musetti:
+    canonical: "Lorenzo Musetti"
+    aliases: ["lorenzo musetti", "musetti"]
+  atp_cobolli:
+    canonical: "Flavio Cobolli"
+    aliases: ["flavio cobolli", "cobolli"]
+  atp_jarry:
+    canonical: "Nicolas Jarry"
+    aliases: ["nicolas jarry", "jarry"]
+  atp_galan:
+    canonical: "Daniel Elahi Galan"
+    aliases: ["daniel elahi galan", "galan", "daniel galan"]
+  atp_thompson:
+    canonical: "Jordan Thompson"
+    aliases: ["jordan thompson", "thompson"]
+  atp_popyrin:
+    canonical: "Alexei Popyrin"
+    aliases: ["alexei popyrin", "popyrin"]
+  atp_tabilo:
+    canonical: "Alejandro Tabilo"
+    aliases: ["alejandro tabilo", "tabilo"]
+  atp_mannarino:
+    canonical: "Adrian Mannarino"
+    aliases: ["adrian mannarino", "mannarino"]
+  atp_bublik:
+    canonical: "Alexander Bublik"
+    aliases: ["alexander bublik", "bublik"]
+  atp_zhang:
+    canonical: "Zhizhen Zhang"
+    aliases: ["zhizhen zhang", "zhang zhizhen"]
+  atp_machac:
+    canonical: "Tomas Machac"
+    aliases: ["tomas machac", "machac"]
+  atp_lehecka:
+    canonical: "Jiri Lehecka"
+    aliases: ["jiri lehecka", "lehecka"]
+  atp_griekspoor:
+    canonical: "Tallon Griekspoor"
+    aliases: ["tallon griekspoor", "griekspoor"]
+
+# WTA top players
+wta:
+  wta_swiatek:
+    canonical: "Iga Swiatek"
+    aliases: ["iga swiatek", "swiatek"]
+  wta_sabalenka:
+    canonical: "Aryna Sabalenka"
+    aliases: ["aryna sabalenka", "sabalenka"]
+  wta_gauff:
+    canonical: "Coco Gauff"
+    aliases: ["coco gauff", "gauff"]
+  wta_rybakina:
+    canonical: "Elena Rybakina"
+    aliases: ["elena rybakina", "rybakina"]
+  wta_jabeur:
+    canonical: "Ons Jabeur"
+    aliases: ["ons jabeur", "jabeur"]
+  wta_pegula:
+    canonical: "Jessica Pegula"
+    aliases: ["jessica pegula", "pegula"]
+  wta_paolini:
+    canonical: "Jasmine Paolini"
+    aliases: ["jasmine paolini", "paolini"]
+  wta_zheng:
+    canonical: "Qinwen Zheng"
+    aliases: ["qinwen zheng", "zheng qinwen", "zheng"]
+  wta_andreeva:
+    canonical: "Mirra Andreeva"
+    aliases: ["mirra andreeva", "andreeva"]
+  wta_keys:
+    canonical: "Madison Keys"
+    aliases: ["madison keys", "keys"]
+  wta_ostapenko:
+    canonical: "Jelena Ostapenko"
+    aliases: ["jelena ostapenko", "ostapenko"]
+  wta_vekic:
+    canonical: "Donna Vekic"
+    aliases: ["donna vekic", "vekic"]
+  wta_putintseva:
+    canonical: "Yulia Putintseva"
+    aliases: ["yulia putintseva", "putintseva"]
+  wta_kasatkina:
+    canonical: "Daria Kasatkina"
+    aliases: ["daria kasatkina", "kasatkina"]
+  wta_sorribes_tormo:
+    canonical: "Sara Sorribes Tormo"
+    aliases: ["sara sorribes tormo", "sorribes tormo", "sorribes"]
+  wta_pridankina:
+    canonical: "Elena Pridankina"
+    aliases: ["elena pridankina", "pridankina"]
+  wta_ponchet:
+    canonical: "Jessika Ponchet"
+    aliases: ["jessika ponchet", "ponchet"]
+  wta_golubic:
+    canonical: "Viktorija Golubic"
+    aliases: ["viktorija golubic", "golubic"]
+  wta_bouzas_maneiro:
+    canonical: "Jessica Bouzas Maneiro"
+    aliases: ["jessica bouzas maneiro", "bouzas maneiro", "bouzas"]
+  wta_bronzetti:
+    canonical: "Lucia Bronzetti"
+    aliases: ["lucia bronzetti", "bronzetti"]
+  wta_yuan:
+    canonical: "Yue Yuan"
+    aliases: ["yue yuan", "yuan yue", "yuan"]
+  wta_blinkova:
+    canonical: "Anna Blinkova"
+    aliases: ["anna blinkova", "blinkova"]
+  wta_navarro:
+    canonical: "Emma Navarro"
+    aliases: ["emma navarro", "navarro"]
+  wta_kalinskaya:
+    canonical: "Anna Kalinskaya"
+    aliases: ["anna kalinskaya", "kalinskaya"]
+  wta_alexandrova:
+    canonical: "Ekaterina Alexandrova"
+    aliases: ["ekaterina alexandrova", "alexandrova"]
+  wta_haddad_maia:
+    canonical: "Beatriz Haddad Maia"
+    aliases: ["beatriz haddad maia", "haddad maia", "haddad"]
+  wta_kostyuk:
+    canonical: "Marta Kostyuk"
+    aliases: ["marta kostyuk", "kostyuk"]
+  wta_collins:
+    canonical: "Danielle Collins"
+    aliases: ["danielle collins", "collins"]
+  wta_tomljanovic:
+    canonical: "Ajla Tomljanovic"
+    aliases: ["ajla tomljanovic", "tomljanovic"]
+  wta_samsonova:
+    canonical: "Liudmila Samsonova"
+    aliases: ["liudmila samsonova", "samsonova"]
+  wta_potapova:
+    canonical: "Anastasia Potapova"
+    aliases: ["anastasia potapova", "potapova"]
+
+# Soccer EPL (Premier League)
+epl:
+  epl_arsenal:
+    canonical: "Arsenal"
+    aliases: ["arsenal", "arsenal fc"]
+  epl_man_city:
+    canonical: "Manchester City"
+    aliases: ["manchester city", "man city", "man. city", "mci"]
+  epl_man_united:
+    canonical: "Manchester United"
+    aliases: ["manchester united", "man united", "man utd", "manchester utd", "mun"]
+  epl_liverpool:
+    canonical: "Liverpool"
+    aliases: ["liverpool", "liverpool fc", "liv"]
+  epl_chelsea:
+    canonical: "Chelsea"
+    aliases: ["chelsea", "chelsea fc", "che"]
+  epl_tottenham:
+    canonical: "Tottenham Hotspur"
+    aliases: ["tottenham hotspur", "tottenham", "spurs", "tot"]
+  epl_newcastle:
+    canonical: "Newcastle United"
+    aliases: ["newcastle united", "newcastle", "newcastle utd", "new"]
+  epl_aston_villa:
+    canonical: "Aston Villa"
+    aliases: ["aston villa", "villa", "avl"]
+  epl_west_ham:
+    canonical: "West Ham United"
+    aliases: ["west ham united", "west ham", "whu", "wha"]
+  epl_brighton:
+    canonical: "Brighton and Hove Albion"
+    aliases: ["brighton and hove albion", "brighton", "bha", "bri"]
+  epl_brentford:
+    canonical: "Brentford"
+    aliases: ["brentford", "bre"]
+  epl_palace:
+    canonical: "Crystal Palace"
+    aliases: ["crystal palace", "palace", "cry"]
+  epl_fulham:
+    canonical: "Fulham"
+    aliases: ["fulham", "ful"]
+  epl_everton:
+    canonical: "Everton"
+    aliases: ["everton", "eve"]
+  epl_wolves:
+    canonical: "Wolverhampton Wanderers"
+    aliases: ["wolverhampton wanderers", "wolves", "wol"]
+  epl_bournemouth:
+    canonical: "Bournemouth"
+    aliases: ["bournemouth", "afc bournemouth", "bou"]
+  epl_forest:
+    canonical: "Nottingham Forest"
+    aliases: ["nottingham forest", "nott'm forest", "forest", "nfo"]

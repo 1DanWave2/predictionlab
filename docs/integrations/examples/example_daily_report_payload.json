@@ -1,0 +1,16 @@
+{
+  "event_type": "daily_report_event",
+  "source": "polymarket_bot",
+  "emitted_at": "2026-04-14T23:30:00.000000+00:00",
+  "bot_mode": "paper_auto",
+  "report_date": "2026-04-14",
+  "paused": false,
+  "total_trades": 18,
+  "open_positions": 3,
+  "closed_positions": 15,
+  "total_realized_pnl": 12.45,
+  "total_unrealized_pnl": 3.82,
+  "gross_exposure": 25.0,
+  "winning_positions": 12,
+  "losing_positions": 6
+}
