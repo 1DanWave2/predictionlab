@@ -1,0 +1,133 @@
+{
+ "fills": 58644,
+ "markets": 1018,
+ "window": [
+  "2026-05-03",
+  "2026-05-29"
+ ],
+ "row_level": [
+  {
+   "bucket": "[0.0, 0.02)",
+   "n": 1589,
+   "implied": 0.0105,
+   "realized": 0.0239,
+   "notional": 12416.9493,
+   "ratio": 2.2874
+  },
+  {
+   "bucket": "[0.02, 0.05)",
+   "n": 6373,
+   "implied": 0.0354,
+   "realized": 0.0852,
+   "notional": 90748.2282,
+   "ratio": 2.4088
+  },
+  {
+   "bucket": "[0.05, 0.1)",
+   "n": 50682,
+   "implied": 0.0739,
+   "realized": 0.0916,
+   "notional": 1580310.9248,
+   "ratio": 1.2399
+  }
+ ],
+ "row_level_all": {
+  "n": 58644,
+  "implied": 0.06799251779620823,
+  "realized": 0.08909692381147262
+ },
+ "notional_weighted": {
+  "implied": 0.0753065305344809,
+  "realized": 0.08347004366893385
+ },
+ "market_level": {
+  "n": 1058,
+  "implied": 0.06823668503768467,
+  "realized": 0.12098298676748583,
+  "pnl_total": 929.8754473321628,
+  "pnl_mean": 0.8788992885937267,
+  "pnl_ex_top10": 519.8102999002324,
+  "top10_share_of_gains": 0.22047989719964042,
+  "pnl_mean_ci": [
+   0.5397257347343085,
+   1.2856912034625585
+  ]
+ },
+ "first_touch": {
+  "n": 1058,
+  "implied": 0.07962175389458345,
+  "realized": 0.12098298676748583,
+  "pnl_mean": 0.7987541852489978,
+  "pnl_mean_ci": [
+   0.4386432985126431,
+   1.206339057980603
+  ],
+  "by_bucket": [
+   {
+    "bucket": "[0.0, 0.02)",
+    "n": 17,
+    "implied": 0.0109,
+    "realized": 0.1765,
+    "ratio": 16.1802
+   },
+   {
+    "bucket": "[0.02, 0.05)",
+    "n": 47,
+    "implied": 0.0346,
+    "realized": 0.0851,
+    "ratio": 2.4631
+   },
+   {
+    "bucket": "[0.05, 0.1)",
+    "n": 994,
+    "implied": 0.0829,
+    "realized": 0.1217,
+    "ratio": 1.4679
+   }
+  ]
+ },
+ "first_touch_by_sports": [
+  {
+   "is_sports": false,
+   "n": 147,
+   "implied": 0.0746,
+   "realized": 0.102
+  },
+  {
+   "is_sports": true,
+   "n": 911,
+   "implied": 0.0804,
+   "realized": 0.124
+  }
+ ],
+ "by_taker_side": [
+  {
+   "side": "BUY",
+   "n": 39127,
+   "implied": 0.0686,
+   "realized": 0.0917,
+   "notional": 1184211.9146
+  },
+  {
+   "side": "SELL",
+   "n": 19517,
+   "implied": 0.0667,
+   "realized": 0.0838,
+   "notional": 499264.1877
+  }
+ ],
+ "by_sports_flag": [
+  {
+   "is_sports": false,
+   "n": 23363,
+   "implied": 0.071,
+   "realized": 0.0801
+  },
+  {
+   "is_sports": true,
+   "n": 35281,
+   "implied": 0.066,
+   "realized": 0.0951
+  }
+ ]
+}

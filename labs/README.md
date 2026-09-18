@@ -12,11 +12,16 @@ labs/YYYY-MM-DD-slug/
   data-window.txt  first and last snapshot timestamp, market count, filters
 ```
 
+## Published
+
+| # | Report | One-line result |
+|---|--------|-----------------|
+| 1 | [Longshot fade](2026-09-18-longshot-fade/README.md) ([RU](2026-09-18-longshot-fade/README.ru.md)) | On 183k closed markets, outcomes priced 5–20¢ within a week of the event win *more* often than priced; the textbook overpricing exists only under 2¢ and a month out, worth 0.4–1.7¢ per share. Selling longshots as a taker loses net. |
+
 ## Planned reports
 
 | # | Report | Question | Scripts |
 |---|--------|----------|---------|
-| 1 | Longshot fade | Are low-priced outcomes overpriced on Polymarket, and does selling them survive fees and tails? | `longtail_moonshot_research.py`, `longtail_event_audit.py`, `category_calibration.py`, `external_calibration.py` |
 | 2 | Maker mode and liquidity rewards | What a two-sided quoter earns net of adverse selection on small accounts | `paper_maker_forensic*.py`, `paper_tail_maker_sim.py`, `rewards_scanner.py` |
 | 3 | Cross-venue gaps | Size and persistence of Kalshi vs Polymarket vs sportsbook gaps on matched events | `cross_market_radar.py`, `odds_api_audit.py`, `app/integrations/kalshi_seed_map.py` |
 

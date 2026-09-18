@@ -88,6 +88,12 @@ Tests:
 pytest -q
 ```
 
+Lab dependencies (pandas, matplotlib, pyarrow, tabulate):
+
+```bash
+pip install -r requirements-labs.txt
+```
+
 ## Configuration
 
 Everything is configured through environment variables (see `.env.example`, which lists every setting with its default). The ones you will touch first:
@@ -130,10 +136,15 @@ Frozen and disabled strategies stay in the repo on purpose: the code and the num
 
 ## Labs
 
-`labs/` holds published reports; `scripts/` holds the research scripts they are built from. The first reports planned:
+`labs/` holds published reports; `scripts/` holds the research scripts they are built from.
 
-1. **Longshot fade.** Are low-priced outcomes systematically overpriced on Polymarket, and does selling them survive fees and tail risk?
-2. **Maker mode and liquidity rewards.** What a two-sided quoter actually earns net of adverse selection.
+Published:
+
+1. **[Longshot fade](labs/2026-09-18-longshot-fade/README.md)** ([RU](labs/2026-09-18-longshot-fade/README.ru.md)). 182,503 closed markets, 765k observations at fixed horizons before the event. Outcomes priced 5–20¢ within a week of the event win *more* often than their price implies; the textbook overpricing exists only under 2¢ and a month or more out, and is worth 0.4–1.7¢ per share. Selling longshots as a taker loses after fees.
+
+Planned:
+
+2. **Maker mode and liquidity rewards.** What a two-sided quoter actually earns net of adverse selection, on 479k order-book snapshots with the rewards parameters attached.
 3. **Cross-venue gaps.** How large and how persistent Kalshi vs Polymarket vs sportsbook gaps are on matched events.
 
 Each report ships with the script, the data window, the exact filters, and the losing cases.

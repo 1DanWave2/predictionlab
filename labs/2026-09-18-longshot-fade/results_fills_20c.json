@@ -1,0 +1,163 @@
+{
+ "fills": 210187,
+ "markets": 1434,
+ "window": [
+  "2026-05-03",
+  "2026-05-29"
+ ],
+ "row_level": [
+  {
+   "bucket": "[0.0, 0.02)",
+   "n": 1589,
+   "implied": 0.0105,
+   "realized": 0.0239,
+   "notional": 12416.9493,
+   "ratio": 2.2874
+  },
+  {
+   "bucket": "[0.02, 0.05)",
+   "n": 6373,
+   "implied": 0.0354,
+   "realized": 0.0852,
+   "notional": 90748.2282,
+   "ratio": 2.4088
+  },
+  {
+   "bucket": "[0.05, 0.1)",
+   "n": 50682,
+   "implied": 0.0739,
+   "realized": 0.0916,
+   "notional": 1580310.9248,
+   "ratio": 1.2399
+  },
+  {
+   "bucket": "[0.1, 0.15)",
+   "n": 73693,
+   "implied": 0.1231,
+   "realized": 0.1066,
+   "notional": 3063122.446,
+   "ratio": 0.8662
+  },
+  {
+   "bucket": "[0.15, 0.2)",
+   "n": 77850,
+   "implied": 0.1729,
+   "realized": 0.1915,
+   "notional": 4612376.7195,
+   "ratio": 1.1079
+  }
+ ],
+ "row_level_all": {
+  "n": 210187,
+  "implied": 0.12617477100002294,
+  "realized": 0.13319567813423286
+ },
+ "notional_weighted": {
+  "implied": 0.13977115421629194,
+  "realized": 0.15107153208720575
+ },
+ "market_level": {
+  "n": 1617,
+  "implied": 0.13190668583095982,
+  "realized": 0.20593692022263452,
+  "pnl_total": 890.9078491771784,
+  "pnl_mean": 0.550963419404563,
+  "pnl_ex_top10": 595.8393421931128,
+  "top10_share_of_gains": 0.13566942944074506,
+  "pnl_mean_ci": [
+   0.3560608820697628,
+   0.7752148428423736
+  ]
+ },
+ "first_touch": {
+  "n": 1617,
+  "implied": 0.1631595315988716,
+  "realized": 0.20593692022263452,
+  "pnl_mean": 0.4840289799611659,
+  "pnl_mean_ci": [
+   0.2788138913940068,
+   0.7142471954424932
+  ],
+  "by_bucket": [
+   {
+    "bucket": "[0.0, 0.02)",
+    "n": 8,
+    "implied": 0.0114,
+    "realized": 0.25,
+    "ratio": 21.978
+   },
+   {
+    "bucket": "[0.02, 0.05)",
+    "n": 33,
+    "implied": 0.0356,
+    "realized": 0.1212,
+    "ratio": 3.4059
+   },
+   {
+    "bucket": "[0.05, 0.1)",
+    "n": 102,
+    "implied": 0.0717,
+    "realized": 0.1961,
+    "ratio": 2.736
+   },
+   {
+    "bucket": "[0.1, 0.15)",
+    "n": 216,
+    "implied": 0.1266,
+    "realized": 0.1667,
+    "ratio": 1.3165
+   },
+   {
+    "bucket": "[0.15, 0.2)",
+    "n": 1258,
+    "implied": 0.1812,
+    "realized": 0.2154,
+    "ratio": 1.1891
+   }
+  ]
+ },
+ "first_touch_by_sports": [
+  {
+   "is_sports": false,
+   "n": 188,
+   "implied": 0.133,
+   "realized": 0.1383
+  },
+  {
+   "is_sports": true,
+   "n": 1429,
+   "implied": 0.1671,
+   "realized": 0.2148
+  }
+ ],
+ "by_taker_side": [
+  {
+   "side": "BUY",
+   "n": 152394,
+   "implied": 0.1288,
+   "realized": 0.1391,
+   "notional": 6933909.1054
+  },
+  {
+   "side": "SELL",
+   "n": 57793,
+   "implied": 0.1192,
+   "realized": 0.1177,
+   "notional": 2425066.1624
+  }
+ ],
+ "by_sports_flag": [
+  {
+   "is_sports": false,
+   "n": 68322,
+   "implied": 0.1206,
+   "realized": 0.0837
+  },
+  {
+   "is_sports": true,
+   "n": 141865,
+   "implied": 0.1289,
+   "realized": 0.157
+  }
+ ]
+}
