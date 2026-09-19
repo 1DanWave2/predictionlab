@@ -78,6 +78,17 @@ def fade_pnl(s: pd.DataFrame, net) -> tuple[np.ndarray, np.ndarray]:
     return tmp["cost"].to_numpy(), tmp["pay"].to_numpy()
 
 
+def _boot_ratio(pay: np.ndarray, cost: np.ndarray, n_boot: int, chunk: int = 100) -> np.ndarray:
+    """Bootstrap of sum(pay)/sum(cost) - 1 resampled by market, in chunks to keep memory flat."""
+    n = len(cost)
+    out = np.empty(n_boot)
+    for a in range(0, n_boot, chunk):
+        b = min(a + chunk, n_boot)
+        idx = RNG.integers(0, n, size=(b - a, n))
+        out[a:b] = pay[idx].sum(axis=1) / cost[idx].sum(axis=1) - 1
+    return out
+
+
 def bootstrap_fade(s: pd.DataFrame, n_boot: int = 2000) -> dict:
     if s.empty:
         return {"n": 0}
@@ -86,8 +97,7 @@ def bootstrap_fade(s: pd.DataFrame, n_boot: int = 2000) -> dict:
     for label, net in (("gross", False), ("net_fee", "fee"), ("net", True)):
         cost, pay = fade_pnl(s, net)
         point = pay.sum() / cost.sum() - 1
-        idx = RNG.integers(0, len(cost), size=(n_boot, len(cost)))
-        boots = pay[idx].sum(axis=1) / cost[idx].sum(axis=1) - 1
+        boots = _boot_ratio(pay, cost, n_boot)
         out[label] = {"ret": float(point), "ci_lo": float(np.percentile(boots, 2.5)),
                       "ci_hi": float(np.percentile(boots, 97.5))}
     # breakeven spread haircut per share (cents): edge left after fees, spread over positions
