@@ -1,0 +1,45 @@
+name: health
+
+# Daily check that the nightly refresh is alive. Opens (or updates) a GitHub issue when
+# the lab data is older than 48 hours or the last nightly-data run failed. GitHub emails
+# the owner about the issue, so no extra secrets are needed.
+
+on:
+  schedule:
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  actions: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      LAB: labs/2026-09-18-longshot-fade
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect data age and last nightly run
+        id: probe
+        run: |
+          built=$(grep -oE 'built: .*' "$LAB/data-window.txt" | sed 's/built: //; s/ UTC//')
+          age_h=$(( ( $(date -u +%s) - $(date -u -d "$built" +%s) ) / 3600 ))
+          last=$(gh run list --workflow nightly-data.yml --limit 1 --json conclusion,createdAt,url -q '.[0] | .conclusion+" "+.createdAt+" "+.url')
+          echo "age_h=$age_h" >> "$GITHUB_OUTPUT"
+          echo "last=$last" >> "$GITHUB_OUTPUT"
+          echo "data built $built ($age_h h ago); last nightly: $last"
+      - name: Open or update an alert issue
+        if: ${{ steps.probe.outputs.age_h > 48 || !startsWith(steps.probe.outputs.last, 'success') }}
+        run: |
+          title="Lab data is stale or the nightly refresh failed"
+          body="Data age: ${{ steps.probe.outputs.age_h }} h. Last nightly-data run: ${{ steps.probe.outputs.last }}. Checked $(date -u +'%F %H:%M UTC')."
+          num=$(gh issue list --label health --state open --json number -q '.[0].number')
+          if [ -n "$num" ]; then gh issue comment "$num" --body "$body"; else gh issue create --title "$title" --body "$body" --label health; fi
+      - name: Close the alert when healthy
+        if: ${{ steps.probe.outputs.age_h <= 48 && startsWith(steps.probe.outputs.last, 'success') }}
+        run: |
+          num=$(gh issue list --label health --state open --json number -q '.[0].number')
+          [ -n "$num" ] && gh issue close "$num" --comment "Healthy again: data age ${{ steps.probe.outputs.age_h }} h, nightly ${{ steps.probe.outputs.last }}." || echo "healthy, nothing open"
