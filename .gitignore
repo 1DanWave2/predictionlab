@@ -29,3 +29,7 @@ dist/
 .vscode/
 tmp/
 out/
+
+# mkdocs staging and output
+site_src/
+site/

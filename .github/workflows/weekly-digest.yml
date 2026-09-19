@@ -1,0 +1,24 @@
+name: weekly-digest
+
+# Sunday digest to the Telegram channel: latest changelog entry + the four figures.
+# Dormant until the TELEGRAM_BOT_TOKEN and TELEGRAM_CHANNEL_ID secrets exist.
+
+on:
+  schedule:
+    - cron: "0 9 * * 0"
+  workflow_dispatch:
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install httpx
+      - name: Send digest (skips when secrets are missing)
+        run: python labs/tools/telegram_digest.py labs/2026-09-18-longshot-fade

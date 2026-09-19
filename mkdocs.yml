@@ -1,0 +1,31 @@
+site_name: PredictionLab
+site_description: Open research and paper-trading engine for prediction markets, with a public lab notebook
+site_url: https://1danwave2.github.io/predictionlab/
+repo_url: https://github.com/1DanWave2/predictionlab
+repo_name: 1DanWave2/predictionlab
+docs_dir: site_src
+site_dir: site
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: teal
+      toggle: { icon: material/brightness-7, name: Dark }
+    - scheme: slate
+      primary: teal
+      toggle: { icon: material/brightness-4, name: Light }
+  features: [navigation.sections, navigation.top, toc.follow, content.code.copy]
+markdown_extensions:
+  - tables
+  - admonition
+  - toc: { permalink: true }
+  - pymdownx.superfences
+nav:
+  - Home: README.md
+  - Labs:
+      - Index: labs/README.md
+      - "Lab 1 · Longshot fade": labs/2026-09-18-longshot-fade/README.md
+      - "Лаба 1 · Лонгшоты (RU)": labs/2026-09-18-longshot-fade/README.ru.md
+      - "Lab 1 · Changelog": labs/2026-09-18-longshot-fade/CHANGELOG.md
+      - "Lab 1 · Tables": labs/2026-09-18-longshot-fade/tables.md
+  - Contributing: CONTRIBUTING.md
