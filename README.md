@@ -151,7 +151,9 @@ Each report ships with the script, the data window, the exact filters, and the l
 
 ## Data
 
-The engine stores market snapshots, paper orders and positions in SQLite by default. Databases are git-ignored; put yours under `data/`. A research dataset export is planned once the collection window is long enough to be meaningful.
+The engine stores market snapshots, paper orders and positions in SQLite by default. Databases are git-ignored; put yours under `data/`.
+
+The lab data store (closed markets, daily YES-price histories, observations) is published as parquet files on the `data-latest` release and refreshed every night by the `nightly-data` workflow, which pulls only what closed since the last run from Polymarket's public APIs, rebuilds the observations and commits the updated results and figures. `gh release download data-latest --pattern '*.parquet'` gets you the current store (~200 MB).
 
 ## Integrations
 

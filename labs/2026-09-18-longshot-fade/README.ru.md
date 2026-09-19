@@ -132,8 +132,13 @@ Favorite–longshot bias — самая известная закономерн�
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt -r requirements-labs.txt
-python3 labs/2026-09-18-longshot-fade/run.py --stage all       # ~2.5 ч: 493k рынков, 297k историй
-python3 labs/2026-09-18-longshot-fade/run.py --stage fills --max-price 0.20   # нужен data/paper_bot_prod_2026-05-29.db
+# полная перекачка (~2.5 ч: 493k рынков, 297k историй) в data/labs/longshot/*.parquet
+python3 labs/2026-09-18-longshot-fade/run.py --stage all --start 2025-09-01
+# или взять опубликованное хранилище и докачать только новое
+gh release download data-latest --repo 1DanWave2/predictionlab --dir data/labs/longshot --pattern '*.parquet'
+python3 labs/2026-09-18-longshot-fade/run.py --stage all --since-days 7
+# проверка на филах (нужна приватная база филов)
+python3 labs/2026-09-18-longshot-fade/run.py --stage fills --max-price 0.20
 ```
 
-Стадии возобновляются с диска. `data-window.txt` фиксирует окно и счётчики прогона, стоящего за этим отчётом.
+Стадии возобновляются из паркетного хранилища. `data-window.txt` фиксирует окно и счётчики прогона, стоящего за графиками в этой папке; GitHub Action `nightly-data` каждую ночь обновляет хранилище, `results.json`, `tables.md` и графики, так что таблицы на этой странице со временем расходятся с текстом выше по мере закрытия новых рынков. Текст правится руками, когда заголовочное число меняет знак.

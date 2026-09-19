@@ -38,7 +38,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--db", default=str(ROOT / "data" / "paper_bot_prod_2026-05-29.db"))
     ap.add_argument("--max-price", type=float, default=0.20)
-    a = ap.parse_args()
+    a, _ = ap.parse_known_args()
     con = sqlite3.connect(f"file:{a.db}?mode=ro", uri=True)
     f = pd.read_sql_query(
         "select fill_ts, wallet, side, condition_id, outcome, price, size, notional, title "

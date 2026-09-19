@@ -1,27 +1,27 @@
-"""Stage 3: turn markets + daily histories into observations.
+"""Stage 3: turn markets + daily histories (parquet store) into observations.
 
 One row per (market, horizon): the last daily YES price observed at least `horizon` days
 before the *event time*, and whether YES resolved true.
 
 Event time is when the uncertainty ends, not when Polymarket booked the resolution:
   - sports: gameStartTime (the game decides it; anything after start is contaminated)
-  - "by <Month> <day>, <year>" questions: that deadline (end of day UTC)
+  - "by <Month> <day>, <year>" / "by end of <Month> <year>" questions: that deadline (end of day UTC)
   - otherwise the earliest of endDate and closedTime
-Observations taken before the market started trading, and the exact-0.50 placeholder that
-exists before the first trade, are dropped.
+Observations taken before the market started trading, the exact-0.50 placeholder that
+exists before the first trade, and untraded opening quotes near 0.50 are dropped.
 
 Output: data/labs/longshot/observations.parquet
 """
 from __future__ import annotations
 
-import json
+import calendar
 import re
 import sys
 from datetime import datetime, timezone
 
 import pandas as pd
 
-from common import HIST, HORIZONS_DAYS, MARKETS_JSONL, OBS_PARQUET, category_of, parse_ts, read_jsonl, resolved_yes
+from common import HORIZONS_DAYS, OBS_PARQUET, category_of, parse_ts, resolved_yes
 
 DAY = 86400
 MONTHS = {m: i for i, m in enumerate(
@@ -30,8 +30,6 @@ MONTHS = {m: i for i, m in enumerate(
 MONTHS.update({k[:3]: v for k, v in list(MONTHS.items())})
 DEADLINE_RE = re.compile(
     r"\b(?:by|before|on|until|through)\s+(?:end of\s+)?([A-Za-z]{3,9})\.?\s+(\d{1,2})(?:st|nd|rd|th)?,?\s+(\d{4})", re.I)
-
-
 EOM_RE = re.compile(r"\b(?:by|before|until|through)\s+(?:the\s+)?end of\s+([A-Za-z]{3,9})\.?\s+(\d{4})", re.I)
 
 
@@ -40,7 +38,6 @@ def deadline_from_question(q: str) -> int | None:
     if e:
         mon = MONTHS.get(e.group(1).lower())
         if mon:
-            import calendar
             last = calendar.monthrange(int(e.group(2)), mon)[1]
             return int(datetime(int(e.group(2)), mon, last, 23, 59, 59, tzinfo=timezone.utc).timestamp())
     m = DEADLINE_RE.search(q or "")
@@ -76,19 +73,19 @@ def event_time(m: dict) -> tuple[int | None, str]:
 
 
 def main() -> None:
+    from store import histories_by_market, markets_records  # local import keeps event_time importable elsewhere
+
+    hists = histories_by_market()
     rows = []
     n_m = n_hist = 0
     src_counts: dict[str, int] = {}
-    for m in read_jsonl(MARKETS_JSONL):
+    for m in markets_records():
         y = resolved_yes(m)
         if y is None:
             continue
         n_m += 1
-        path = HIST / f"{m['id']}.json"
-        if not path.exists():
-            continue
-        hist = json.loads(path.read_text()).get("history") or []
-        if len(hist) < 2:
+        pts = hists.get(str(m["id"]))
+        if not pts or len(pts) < 2:
             continue
         n_hist += 1
         t_event, src = event_time(m)
@@ -96,8 +93,7 @@ def main() -> None:
             continue
         src_counts[src] = src_counts.get(src, 0) + 1
         t_close = parse_ts(m.get("closedTime")) or parse_ts(m.get("umaEndDate")) or parse_ts(m.get("endDate")) or t_event
-        t_start = parse_ts(m.get("acceptingOrdersTimestamp")) or parse_ts(m.get("startDate")) or parse_ts(m.get("createdAt")) or hist[0]["t"]
-        pts = sorted((int(h["t"]), float(h["p"])) for h in hist if h.get("p") is not None)
+        t_start = parse_ts(m.get("acceptingOrdersTimestamp")) or parse_ts(m.get("startDate")) or parse_ts(m.get("createdAt")) or pts[0][0]
         first_t = pts[0][0]
         base = {
             "market_id": str(m["id"]),
@@ -123,9 +119,8 @@ def main() -> None:
                 continue
             if t == first_t and abs(p - 0.5) < 1e-9:
                 continue  # pre-trade placeholder
-            # untraded opening quote: price never moved from its first value and sits near 0.5
             if 0.4 <= p <= 0.6 and all(abs(pp - p) < 1e-9 for _, pp in cand):
-                continue
+                continue  # untraded opening quote
             rows.append({**base, "horizon_days": h, "obs_ts": t, "p_yes": p})
     df = pd.DataFrame(rows)
     df.to_parquet(OBS_PARQUET, index=False)
@@ -138,7 +133,8 @@ def main() -> None:
             f"event time range: {pd.to_datetime(df['event_ts'].min(), unit='s')} .. {pd.to_datetime(df['event_ts'].max(), unit='s')}\n"
             f"event time source: {src_counts}\n"
             f"observations by horizon: {df.groupby('horizon_days').size().to_dict()}\n"
-            f"filters: closed markets, endDate in fetch window, volume >= $5k, clean 0/1 resolution, >=2 daily points\n")
+            f"filters: closed markets, volume >= $5k, clean 0/1 resolution, >=2 daily points, lifetime >= 1.5d\n"
+            f"built: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}\n")
 
 
 if __name__ == "__main__":

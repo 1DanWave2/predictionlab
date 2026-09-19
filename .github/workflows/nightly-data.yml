@@ -1,0 +1,75 @@
+name: nightly-data
+
+# Refreshes Lab 1 every night: incremental pull of closed markets and their daily
+# histories from Polymarket's public APIs, rebuild of observations, results and figures.
+# The parquet store lives on the "data-latest" release of this repository.
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+    inputs:
+      since_days:
+        description: "How many days back to re-scan (endDate window)"
+        default: "7"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nightly-data
+  cancel-in-progress: false
+
+env:
+  LAB: labs/2026-09-18-longshot-fade
+  STORE: data/labs/longshot
+  GH_TOKEN: ${{ github.token }}
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt -r requirements-labs.txt
+
+      - name: Restore parquet store from the data-latest release
+        run: |
+          mkdir -p "$STORE"
+          gh release download data-latest --repo "$GITHUB_REPOSITORY" --dir "$STORE" --pattern '*.parquet' --clobber
+          ls -la "$STORE"
+
+      - name: Markets (incremental)
+        run: python "$LAB/run.py" --stage markets --since-days "${{ github.event.inputs.since_days || '7' }}"
+
+      - name: Histories (new resolved markets only)
+        run: python "$LAB/run.py" --stage history --workers 8
+
+      - name: Observations and analysis
+        run: |
+          python "$LAB/run.py" --stage obs
+          python "$LAB/run.py" --stage analyze
+          cp "$STORE/data-window.txt" "$LAB/data-window.txt"
+
+      - name: Upload parquet store back to the release
+        run: |
+          gh release upload data-latest \
+            "$STORE/markets.parquet" "$STORE/histories.parquet" \
+            "$STORE/history_status.parquet" "$STORE/observations.parquet" \
+            --clobber --repo "$GITHUB_REPOSITORY"
+
+      - name: Commit refreshed results
+        run: |
+          git config user.name "predictionlab-bot"
+          git config user.email "predictionlab-bot@users.noreply.github.com"
+          git add "$LAB/results.json" "$LAB/tables.md" "$LAB/figures" "$LAB/data-window.txt"
+          if git diff --cached --quiet; then
+            echo "nothing changed"
+          else
+            git commit -m "nightly: refresh lab 1 ($(date -u +%F))"
+            git push
+          fi

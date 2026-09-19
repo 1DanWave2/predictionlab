@@ -183,6 +183,8 @@ def fig_category(res: dict) -> None:
 
 
 def main() -> None:
+    import argparse
+    argparse.ArgumentParser().parse_known_args()
     df = pd.read_parquet(OBS_PARQUET)
     res: dict = {
         "markets": int(df["market_id"].nunique()),

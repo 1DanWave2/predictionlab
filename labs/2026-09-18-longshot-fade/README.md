@@ -132,8 +132,13 @@ Two other details. Takers who *bought* longshots did marginally better than the 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt -r requirements-labs.txt
-python3 labs/2026-09-18-longshot-fade/run.py --stage all       # ~2.5 h: 493k markets, 297k histories
-python3 labs/2026-09-18-longshot-fade/run.py --stage fills --max-price 0.20   # needs data/paper_bot_prod_2026-05-29.db
+# full backfill (~2.5 h: 493k markets, 297k histories) into data/labs/longshot/*.parquet
+python3 labs/2026-09-18-longshot-fade/run.py --stage all --start 2025-09-01
+# or start from the published store and only pull what is new
+gh release download data-latest --repo 1DanWave2/predictionlab --dir data/labs/longshot --pattern '*.parquet'
+python3 labs/2026-09-18-longshot-fade/run.py --stage all --since-days 7
+# fill-stream check (needs the private fills database)
+python3 labs/2026-09-18-longshot-fade/run.py --stage fills --max-price 0.20
 ```
 
-Stages resume from disk. `data-window.txt` records the window and counts of the run behind this report.
+Stages resume from the parquet store. `data-window.txt` records the window and counts of the run behind the figures in this folder; the GitHub Action `nightly-data` refreshes the store, `results.json`, `tables.md` and the figures every night, so the tables on this page drift from the prose above as new markets close. The prose is revised by hand when a headline number changes sign.
