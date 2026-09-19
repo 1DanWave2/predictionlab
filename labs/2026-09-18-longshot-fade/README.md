@@ -1,6 +1,6 @@
 # Lab 1 · Are longshots overpriced on Polymarket, and can you sell them?
 
-*PredictionLab, September 2026. Scripts, data window and figures are in this folder; every number below comes from `results.json`, `results_fills_20c.json` and `results_fills_10c.json`, produced by `run.py`.*
+*PredictionLab, September 2026. Weekly digests (Russian) in the Telegram channel [@predictionlab_ru](https://t.me/predictionlab_ru). Scripts, data window and figures are in this folder; every number below comes from `results.json`, `results_fills_20c.json` and `results_fills_10c.json`, produced by `run.py`.*
 
 **Short answer.** Within a week of the event, no: outcomes priced 5–20¢ on Polymarket win *more* often than their price implies, so selling them loses before costs. The textbook overpricing exists only in the sub-2¢ tail and in longshots priced a month or more out, and there it is worth 0.4–1.7¢ per share: less than a taker's spread, enough for a maker to think about, not enough for a business.
 

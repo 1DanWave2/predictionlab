@@ -136,7 +136,7 @@ Frozen and disabled strategies stay in the repo on purpose: the code and the num
 
 ## Labs
 
-`labs/` holds published reports; `scripts/` holds the research scripts they are built from.
+`labs/` holds published reports; `scripts/` holds the research scripts they are built from. Weekly digests in Russian go to the Telegram channel [@predictionlab_ru](https://t.me/predictionlab_ru); the site at [1danwave2.github.io/predictionlab](https://1danwave2.github.io/predictionlab/) mirrors the reports.
 
 Published:
 
