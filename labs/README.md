@@ -17,12 +17,12 @@ labs/YYYY-MM-DD-slug/
 | # | Report | One-line result |
 |---|--------|-----------------|
 | 1 | [Longshot fade](2026-09-18-longshot-fade/README.md) ([RU](2026-09-18-longshot-fade/README.ru.md)) | On 183k closed markets, outcomes priced 5–20¢ within a week of the event win *more* often than priced; the textbook overpricing exists only under 2¢ and a month out, worth 0.4–1.7¢ per share. Selling longshots as a taker loses net. |
+| 2 | [Maker rewards](2026-09-25-maker-rewards/README.md) ([RU](2026-09-25-maker-rewards/README.ru.md)) | On 479k book snapshots from May 2026, the rewards program paid ~0.9%/day of corridor capital (median market 1%); fills at the touch were benign on average (+0.7¢/share size-weighted); a 1,000-share two-sided quote modelled to 2.4%/day median. A $100 account is ineligible on 96% of market-days, and live pools today pay a quarter of May. |
 
 ## Planned reports
 
 | # | Report | Question | Scripts |
 |---|--------|----------|---------|
-| 2 | Maker mode and liquidity rewards | What a two-sided quoter earns net of adverse selection on small accounts | `paper_maker_forensic*.py`, `paper_tail_maker_sim.py`, `rewards_scanner.py` |
 | 3 | Cross-venue gaps | Size and persistence of Kalshi vs Polymarket vs sportsbook gaps on matched events | `cross_market_radar.py`, `odds_api_audit.py`, `app/integrations/kalshi_seed_map.py` |
 
 ## Research scripts by theme

@@ -1,0 +1,5 @@
+snapshots: 479,334 rows, 902 markets, 2026-05-07 06:33 .. 2026-05-29 16:18 UTC, median gap 33 s, price range 30-80c
+reward markets: 819 (active pool at some snapshot); min order size 200 shares on 53% of snapshots, 1000 on 20%
+fills: 1,943,590 total; 1,165,152 on snapshot markets; 542,485 with a snapshot <= 90 s old; 347,529 at the touch (used)
+calibration: 37 live CLOB books 2026-09-19 (corridor vs liquidity, corridor weight); 12 live reward markets 2026-09-19 (pool / corridor)
+source database: private (data/paper_bot_prod_2026-05-29.db); extracted parquet files published on the data-latest release

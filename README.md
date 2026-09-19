@@ -130,7 +130,7 @@ The registry (`app/strategies/registry.py`) is the truth; this table is a snapsh
 | `fade_any` | frozen | Buy 5-point drops in 5 minutes, expect a bounce | 31 trades, 58% win rate, net negative: fat left tail |
 | `asset_target` | frozen | One-touch barrier probability for "asset above X by date" markets | 60-minute hypothesis falsified on 6,077 trades; resolution hypothesis untested |
 | `wti_mr_canary` | frozen | Mean reversion on WTI price-target markets | Single correlated market family, no-go |
-| `maker` | disabled | Two-sided quoting for liquidity rewards | Not viable on a $100 paper account; revisit at $1,000+ |
+| `maker` | disabled | Two-sided quoting for liquidity rewards | Not viable on a $100 paper account; Lab 2 puts the eligibility floor at 200–1,000 shares a side |
 
 Frozen and disabled strategies stay in the repo on purpose: the code and the numbers are the lab notebook.
 
@@ -142,9 +142,10 @@ Published:
 
 1. **[Longshot fade](labs/2026-09-18-longshot-fade/README.md)** ([RU](labs/2026-09-18-longshot-fade/README.ru.md)). 182,503 closed markets, 765k observations at fixed horizons before the event. Outcomes priced 5–20¢ within a week of the event win *more* often than their price implies; the textbook overpricing exists only under 2¢ and a month or more out, and is worth 0.4–1.7¢ per share. Selling longshots as a taker loses after fees.
 
+2. **[Maker rewards](labs/2026-09-25-maker-rewards/README.md)** ([RU](labs/2026-09-25-maker-rewards/README.ru.md)). 479k order-book snapshots and 1.9M taker fills from May 2026. The liquidity-rewards program paid about 0.9% per day of the capital resting inside the reward corridor; fills at the touch were benign on average; a 1,000-share two-sided quote modelled to 2.4% of capital per day (median market-day), almost all of it rewards. A $100 account is ineligible on 96% of market-days, and the same pool-to-liquidity ratio on live markets today is a quarter of May's.
+
 Planned:
 
-2. **Maker mode and liquidity rewards.** What a two-sided quoter actually earns net of adverse selection, on 479k order-book snapshots with the rewards parameters attached.
 3. **Cross-venue gaps.** How large and how persistent Kalshi vs Polymarket vs sportsbook gaps are on matched events.
 
 Each report ships with the script, the data window, the exact filters, and the losing cases.

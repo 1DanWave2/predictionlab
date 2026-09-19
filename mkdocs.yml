@@ -28,4 +28,7 @@ nav:
       - "Лаба 1 · Лонгшоты (RU)": labs/2026-09-18-longshot-fade/README.ru.md
       - "Lab 1 · Changelog": labs/2026-09-18-longshot-fade/CHANGELOG.md
       - "Lab 1 · Tables": labs/2026-09-18-longshot-fade/tables.md
+      - "Lab 2 · Maker rewards": labs/2026-09-25-maker-rewards/README.md
+      - "Лаба 2 · Мейкер и награды (RU)": labs/2026-09-25-maker-rewards/README.ru.md
+      - "Lab 2 · Tables": labs/2026-09-25-maker-rewards/tables.md
   - Contributing: CONTRIBUTING.md
