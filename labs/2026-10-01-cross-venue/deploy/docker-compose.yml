@@ -1,0 +1,16 @@
+services:
+  xvenue:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    container_name: predictionlab-xvenue
+    restart: unless-stopped
+    volumes:
+      - ..:/app:ro
+      - ./data:/data
+    mem_limit: 512m
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"
