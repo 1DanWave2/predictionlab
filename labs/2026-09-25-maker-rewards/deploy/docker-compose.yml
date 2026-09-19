@@ -1,0 +1,11 @@
+services:
+  shadow-maker:
+    build: .
+    container_name: predictionlab-shadow
+    restart: unless-stopped
+    volumes:
+      - ./data:/data
+    mem_limit: 256m
+    logging:
+      driver: json-file
+      options: { max-size: "5m", max-file: "3" }
