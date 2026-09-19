@@ -2,7 +2,7 @@
 
     python3 collect.py --db /data/xvenue.db [--interval 300] [--rematch-hours 6] [--cycles 0]
 
-Every cycle: Kalshi /markets?tickers=... in chunks of 300 (yes_bid / yes_ask / last / 24h volume /
+Every cycle: Kalshi /markets?tickers=... in URL-sized chunks (yes_bid / yes_ask / last / 24h volume /
 open interest) and Polymarket CLOB POST /prices in chunks of 150 tokens (BUY = best bid, SELL =
 best ask for the outcome token tied to the Kalshi YES). One row per pair per cycle goes into
 `ticks`. Every --rematch-hours the snapshot + matcher (fetch.py, match.py) are re-run in this
@@ -127,6 +127,18 @@ def get_json(c: httpx.Client, url: str, params: dict):
     return None
 
 
+def ticker_chunks(tickers: list[str], max_chars: int = 4000, max_n: int = 300) -> list[list[str]]:
+    """Split tickers into batches whose comma-joined length stays under the URL limit."""
+    out, cur, n = [], [], 0
+    for t in tickers:
+        if cur and (n + len(t) + 1 > max_chars or len(cur) >= max_n):
+            out.append(cur); cur, n = [], 0
+        cur.append(t); n += len(t) + 1
+    if cur:
+        out.append(cur)
+    return out
+
+
 def cycle(c: httpx.Client, db: sqlite3.Connection) -> tuple[int, int, int]:
     pairs = db.execute("select pair_id, kalshi_ticker, poly_token from pairs where active=1").fetchall()
     if not pairs:
@@ -134,8 +146,8 @@ def cycle(c: httpx.Client, db: sqlite3.Connection) -> tuple[int, int, int]:
     tickers = sorted({p[1] for p in pairs})
     tokens = sorted({p[2] for p in pairs})
     kal: dict[str, dict] = {}
-    for i in range(0, len(tickers), 300):
-        d = get_json(c, f"{KALSHI}/markets", {"tickers": ",".join(tickers[i:i + 300]), "limit": 1000}) or {}
+    for chunk in ticker_chunks(tickers):           # game tickers are ~30 chars: 300 of them overflow the URL (HTTP 414)
+        d = get_json(c, f"{KALSHI}/markets", {"tickers": ",".join(chunk), "limit": 1000}) or {}
         for m in d.get("markets", []):
             kal[m["ticker"]] = m
         time.sleep(0.1)
