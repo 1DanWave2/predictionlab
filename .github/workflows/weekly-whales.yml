@@ -1,0 +1,47 @@
+name: weekly-whales
+
+# Sunday 05:10 UTC: snapshot the leaderboard and the top wallets, rewrite the lab's README block,
+# keep the leaderboard history in the data release. The Sunday video and channel posts read
+# labs/2026-09-22-whales/results.json from this commit.
+
+on:
+  schedule:
+    - cron: "10 5 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nightly-data
+
+jobs:
+  whales:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      LAB: labs/2026-09-22-whales
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements-labs.txt httpx
+      - name: Restore the leaderboard history from the data release
+        run: |
+          mkdir -p data/labs/whales
+          gh release download data-latest -p whales_leaderboard_history.parquet -O data/labs/whales/leaderboard_history.parquet --clobber || echo "no history yet"
+      - run: python $LAB/fetch.py --top 25
+      - run: python $LAB/analyze.py
+      - name: Upload the snapshot and history to the data release
+        run: |
+          d=$(date -u +%F)
+          tar czf whales_$d.tar.gz -C data/labs/whales $d
+          gh release upload data-latest whales_$d.tar.gz --clobber
+          gh release upload data-latest data/labs/whales/leaderboard_history.parquet#whales_leaderboard_history.parquet --clobber
+      - name: Commit results
+        run: |
+          git config user.name "predictionlab-bot"
+          git config user.email "predictionlab-bot@users.noreply.github.com"
+          git add $LAB/results.json $LAB/tables.md $LAB/README.md
+          git diff --cached --quiet || (git commit -m "whales: weekly snapshot $(date -u +%F)" && git pull --rebase && git push)
