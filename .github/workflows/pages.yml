@@ -3,7 +3,7 @@ name: pages
 on:
   push:
     branches: [main]
-    paths: ["README.md", "CONTRIBUTING.md", "labs/**", "mkdocs.yml", ".github/workflows/pages.yml"]
+    paths: ["README.md", "CONTRIBUTING.md", "docs/links.md", "labs/**", "mkdocs.yml", ".github/workflows/pages.yml"]
   workflow_dispatch:
 
 permissions:
@@ -27,7 +27,7 @@ jobs:
       - name: Stage docs (README.md serves as each folder's index)
         run: |
           mkdir -p site_src/labs
-          cp README.md CONTRIBUTING.md site_src/
+          cp README.md CONTRIBUTING.md docs/links.md site_src/
           rsync -a --include='*/' --include='*.md' --include='*.png' --exclude='*' labs/ site_src/labs/
       - run: mkdocs build --strict
       - uses: actions/upload-pages-artifact@v3
