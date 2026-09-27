@@ -1,0 +1,189 @@
+{
+ "coverage": {
+  "hours": 163.5,
+  "days": 6.81,
+  "markets": 297,
+  "quotes": 387766,
+  "minutes_sampled": 9762,
+  "markets_per_minute": 39.7,
+  "coverage_pct": 99.5
+ },
+ "rewards": {
+  "accrued_usd": 10028.04,
+  "per_day_usd": 1472.09,
+  "capital_mean_usd": 27339,
+  "yield_pct_per_day": 5.385,
+  "median_share_pct": 9.6,
+  "mean_share_pct": 21.34,
+  "median_pool_usd_day": 200.0,
+  "median_corridor_shares": 30354,
+  "share_of_minutes_eligible": 98.5
+ },
+ "fills": {
+  "n": 23426,
+  "by_side": {
+   "buy_yes": 12576,
+   "sell_yes": 10850
+  },
+  "taker_shares": 8325480,
+  "touch_depth_median_bid": 809,
+  "touch_depth_median_ask": 860,
+  "minutes_our_bid_exceeds_touch_pct": 53,
+  "spread_median_c": 1.0,
+  "spread_mean_c": 1.56,
+  "our_shares_pro_rata": 1320918,
+  "our_shares_last_in_queue": 704215,
+  "our_shares_per_day": 193907,
+  "turnover_per_day_x": 3.26,
+  "median_taker_size": 22.7,
+  "fills_per_market_day": 86.6
+ },
+ "markout": {
+  "capture_c_sizew": {
+   "est": 1.844,
+   "lo": 1.716,
+   "hi": 1.991
+  },
+  "capture_print_c_sizew": {
+   "est": 2.229,
+   "lo": 2.104,
+   "hi": 2.356
+  },
+  "sweep_share_pct": 17.8,
+  "net_5m_c_sizew": {
+   "est": 1.007,
+   "lo": 0.875,
+   "hi": 1.152,
+   "n": 19040
+  },
+  "drift_5m_c_sizew": {
+   "est": -0.138,
+   "lo": -0.185,
+   "hi": -0.095
+  },
+  "net_5m_c_equal": {
+   "est": 0.952,
+   "lo": 0.915,
+   "hi": 0.989,
+   "n": 19040
+  },
+  "drift_5m_c_equal": {
+   "est": -0.051,
+   "lo": -0.062,
+   "hi": -0.039
+  },
+  "net_5m_c_sizew_buy_yes": {
+   "est": 1.12,
+   "lo": 0.915,
+   "hi": 1.339,
+   "n": 12576
+  },
+  "net_5m_c_sizew_sell_yes": {
+   "est": 0.839,
+   "lo": 0.727,
+   "hi": 0.965,
+   "n": 10850
+  },
+  "net_15m_c_sizew": {
+   "est": 0.975,
+   "lo": 0.83,
+   "hi": 1.154,
+   "n": 18746
+  },
+  "drift_15m_c_sizew": {
+   "est": -0.073,
+   "lo": -0.169,
+   "hi": 0.021
+  },
+  "net_15m_c_equal": {
+   "est": 1.01,
+   "lo": 0.96,
+   "hi": 1.06,
+   "n": 18746
+  },
+  "drift_15m_c_equal": {
+   "est": 0.011,
+   "lo": -0.018,
+   "hi": 0.039
+  },
+  "net_15m_c_sizew_buy_yes": {
+   "est": 1.104,
+   "lo": 0.864,
+   "hi": 1.366,
+   "n": 12576
+  },
+  "net_15m_c_sizew_sell_yes": {
+   "est": 0.789,
+   "lo": 0.642,
+   "hi": 0.952,
+   "n": 10850
+  },
+  "net_60m_c_sizew": {
+   "est": 0.682,
+   "lo": 0.538,
+   "hi": 0.819,
+   "n": 18001
+  },
+  "drift_60m_c_sizew": {
+   "est": -0.271,
+   "lo": -0.381,
+   "hi": -0.166
+  },
+  "net_60m_c_equal": {
+   "est": 0.772,
+   "lo": 0.72,
+   "hi": 0.823,
+   "n": 18001
+  },
+  "drift_60m_c_equal": {
+   "est": -0.151,
+   "lo": -0.194,
+   "hi": -0.111
+  },
+  "net_60m_c_sizew_buy_yes": {
+   "est": 0.572,
+   "lo": 0.373,
+   "hi": 0.788,
+   "n": 12576
+  },
+  "net_60m_c_sizew_sell_yes": {
+   "est": 0.838,
+   "lo": 0.641,
+   "hi": 1.025,
+   "n": 10850
+  }
+ },
+ "economics": {
+  "reward_usd_day": 1472.09,
+  "fill_pnl_usd_day": {
+   "5": 1507.46,
+   "15": 1422.94,
+   "60": 977.34
+  },
+  "reward_pct_day": 5.385,
+  "fill_pnl_pct_day": {
+   "5": 5.514,
+   "15": 5.205,
+   "60": 3.575
+  },
+  "total_pct_day_15m": 10.59,
+  "net_inventory_shares_total": 409509,
+  "net_inventory_pct_of_gross": 31.0,
+  "net_inventory_shares_per_day": 60115,
+  "net_inventory_per_market_median": 226,
+  "net_inventory_per_market_p90": 4075
+ },
+ "dispersion": {
+  "market_yield_pct_day_median": 7.586,
+  "market_yield_pct_day_p10": 1.069,
+  "market_yield_pct_day_p90": 20.019,
+  "markets_with_fills": 242
+ },
+ "assumptions": {
+  "bid_size": 1000.0,
+  "ask_size": 500.0,
+  "capital": "1000 x bid + 500 x ask per market, averaged over sampled minutes",
+  "markout": "mid at t+h vs fill price, signed in our favour; capture = mid at fill vs price; drift = net - capture",
+  "fill_share": "pro-rata S/(depth+S) of each taker trade at our price, capped at S; last-in-queue variant reported as a floor"
+ }
+}

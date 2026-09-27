@@ -33,3 +33,4 @@ out/
 # mkdocs staging and output
 site_src/
 site/
+CONTINUE_HERE.md

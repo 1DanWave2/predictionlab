@@ -85,7 +85,41 @@ All figures are % of capital per day, means over eligible market-days; medians a
 
 **Quote the bid harder than the ask.** In this window sells into the bid reverted and buys at the ask did not. A quote skewed towards the bid keeps the reward score (both sides still count) while taking less of the informed side. This is the single testable idea to carry into a paper run.
 
-**What we did not measure.** Inventory that is not unwound within an hour, and resolution risk: a maker who gets filled and holds to resolution is back in Lab 1's territory. Queue priority beyond two extreme scenarios. Any market outside 30–80¢. Anything after May 29.
+**What we did not measure.** Inventory that is not unwound within an hour, and resolution risk: a maker who gets filled and holds to resolution is back in Lab 1's territory. Queue priority beyond two extreme scenarios. Any market outside 30–80¢. Anything after May 29. The shadow run below measures the first two on a week of live books.
+
+## Shadow run: the hypothesis on live books (19–26 September 2026)
+
+`shadow_maker.py` ran the "bid-heavier quote on above-median pools" idea against live Polymarket books for a week without placing an order. Every 60 s it pulled the full CLOB book of about 40 reward markets (pool at or above the median of the candidates, mid 20–80¢, `rewardsMinSize` ≤ 1,000), scored a virtual 1,000-share bid at the best bid and a 500-share ask at the best ask with the exact 2026 reward formula against every resting order in the corridor, and logged every taker trade at our price as a virtual fill with the pro-rata share `S/(depth+S)`. `shadow_report.py` turns the log into yields and markouts; `shadow_inventory.py` values every fill at the market's actual payout once it resolves. The snapshot `shadow_2026-09-26.db.gz` (SQLite: 388k quotes, 23k fills) is attached to the `data-latest` release.
+
+| | Week 1: 6.8 days, 297 markets, ~40 at a time, 99.5% of minutes sampled |
+|---|---|
+| Capital in the quotes | $27.3k on average (1,000 × bid + 500 × ask per market) |
+| Rewards by the formula | $1,472 a day, 5.4% of capital; median pool share 9.6%, mean 21% |
+| Why the share is that large | our 1,000 exceeded the whole touch depth in 53% of minutes (median touch 809 shares); a live book would react and the share would fall |
+| Virtual fills | 23,426; 194k shares a day pro-rata (3.3× the capital), about half that if last in queue |
+| Spread capture | 1.84¢ a share, size-weighted, at our own quote (2.23¢ if measured at the taker's print: 18% of fills swept through our level) |
+| Markout 5 / 15 / 60 min | +1.01¢ [0.88; 1.15] / +0.98¢ [0.83; 1.15] / +0.68¢ [0.54; 0.82] a share |
+| Drift after the fill | −0.14 / −0.07 / −0.27¢: mild adverse selection, well inside the captured spread |
+| By side, 15 min | bid fills +1.10¢, ask fills +0.79¢ |
+| Fill P&L | $1,423 a day at the 15-min markout, 5.2%; "on paper" total 10.6% a day |
+| Net inventory | 60k shares a day never unwound (31% of turnover) |
+
+The May result held: fills at the touch were benign then (+0.7¢ at 5 min) and are benign now (+1.0¢). The reward yield is twice the May model's 2.4% at 1,000 shares because the live touch is thinner than the May snapshots, which is the same fact as the first caveat below.
+
+### What the markout could not see
+
+![shadow_inventory](figures/shadow_inventory.png)
+
+Fills are not round trips. With the bid twice the ask, the maker bought 803k shares and sold 518k over the week: a structural long in YES. By 27 September, 35 of the 242 markets with fills had resolved (3,380 fills, 188k shares):
+
+- Valued at the payout, those fills made +$16.9k against +$4.3k at the 15-minute markout. The difference is inventory: +$14.6k.
+- $14.2k of that came from two markets where YES won (a US–Iran meeting by 30 September: 16k shares bought at 44¢; United Russia winning the most seats: 24k at 79¢). Without them the inventory on the other 33 markets is +$433, the median market is +$10, and 15 of 35 are negative.
+- Split by direction: long YES and YES won, 14 markets, +$18.0k; long YES and NO won, 11 markets, −$2.6k. The inventory result is a bet on YES, not maker edge.
+- On the 207 still-open markets the inventory is −$3.3k at the last mid, concentrated in a few trending-down questions where the bid kept getting hit (10–25k shares each, −$1.5k to −$2.8k), every one of them with a positive 15-minute markout.
+
+So the two measured halves of the "on paper" number are real (spread and rewards), and the third, previously unmeasured part decides the sign: a fixed quote size with no inventory control turns the maker into a directional holder. That is the first thing a live version has to add: shrink the bid when long, stop quoting a market once inventory passes a limit.
+
+Caveats specific to the shadow: competition is frozen (nobody reacts to our size); fills are modelled pro-rata from taker prints and real queue position is unknown; 35 resolved markets in one week with two outliers is not a distribution; open markets are marked at a mid, not a payout. `shadow_inventory.py` is meant to be re-run in a few weeks, when more of the 207 have resolved.
 
 ## Caveats
 
@@ -106,3 +140,11 @@ python3 labs/2026-09-25-maker-rewards/analyze.py                                
 ```
 
 The May snapshots come from a private database and are not published; the extracted parquet files (`data/labs/maker/snapshots.parquet`, 11 MB; `fills.parquet`, 38 MB) will be attached to the `data-latest` release so the analysis is reproducible without the database.
+
+Shadow run (live books, no orders):
+
+```bash
+python3 labs/2026-09-25-maker-rewards/shadow_maker.py --db data/labs/maker/shadow.db        # runs until stopped; one cycle a minute
+python3 labs/2026-09-25-maker-rewards/shadow_report.py --db data/labs/maker/shadow.db       # yields, fills, markouts -> results_shadow.json
+python3 labs/2026-09-25-maker-rewards/shadow_inventory.py --db data/labs/maker/shadow.db    # fills at payout via the CLOB -> results_shadow_inventory.json
+```
