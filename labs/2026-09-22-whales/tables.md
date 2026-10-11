@@ -1,29 +1,29 @@
-# Top 25 by weekly PnL — 2026-10-04
+# Top 25 by weekly PnL — 2026-10-11
 
 |   rank | name                   |     pnl |      vol |   trades |   median_trade |   closed |   hit_rate |   best_share | maker   | cat              |
 |-------:|:-----------------------|--------:|---------:|---------:|---------------:|---------:|-----------:|-------------:|:--------|:-----------------|
-|      1 | BreakTheBank           | 2671890 |  8384061 |     2452 |             14 |       37 |          5 |           30 | True    | sports & esports |
-|      2 | wr0ngw4yb3tt0r         | 1566061 | 17643159 |     4885 |             29 |       39 |         15 |           51 | True    | sports & esports |
-|      3 | SmartPredictOrNot      | 1496698 |  7414815 |      143 |            574 |        3 |         67 |           57 | False   | other            |
-|      4 | HomeRunHazard          | 1222309 | 33750915 |     4357 |             46 |      150 |          5 |           10 | False   | sports & esports |
-|      5 | 0xBc43c8bfBC4d77c2FC90 |  801594 |  9267827 |     4058 |             26 |       69 |         25 |           38 | True    | sports & esports |
-|      6 | Diabolical-Prize       |  715512 |  8894346 |     3056 |             26 |       38 |         24 |           65 | False   | sports & esports |
-|      7 | e46m3                  |  684874 |   542909 |     1940 |             12 |      116 |         12 |            6 | True    | other            |
-|      8 | UpTheBlues             |  585410 | 30763911 |     4103 |             20 |       49 |          8 |           27 | False   | sports & esports |
-|      9 | raybanman              |  526052 |  2462346 |       17 |           8614 |        5 |         80 |           73 | False   | sports & esports |
-|     10 | Bigggggggg             |  517457 |  1674198 |     4273 |              6 |       57 |         26 |           26 | True    | politics & macro |
-|     11 | TeamA                  |  510462 |        0 |        7 |          22770 |        1 |        100 |           10 | False   | politics & macro |
-|     12 | primm                  |  507030 |  5251690 |     2938 |             67 |      297 |          2 |           32 | True    | sports & esports |
-|     13 | liquiditycrisis        |  506359 |  2859710 |       40 |          16583 |       19 |         63 |           51 | False   | sports & esports |
-|     14 | crispychook99          |  504313 |  6646978 |     2854 |             27 |        7 |         86 |           35 | False   | sports & esports |
-|     15 | Papeasy                |  500241 |        0 |        0 |              0 |        0 |        nan |          nan | False   |                  |
-|     16 | texaskid               |  385062 |  2391253 |      200 |             25 |       11 |         27 |           58 | False   | sports & esports |
-|     17 | 0xb0e74DF9430A089Aa102 |  340465 |        0 |        0 |              0 |       24 |        100 |            1 | False   |                  |
-|     18 | Pwaddler               |  317003 |  1384965 |      339 |             52 |       22 |         36 |           17 | False   | sports & esports |
-|     19 | Jsram                  |  267685 |   908570 |      580 |             19 |        2 |         50 |           82 | True    | sports & esports |
-|     20 | aenews2                |  258237 |  1797239 |      136 |            204 |       11 |          0 |            0 | False   | other            |
-|     21 | COMEONDUDE             |  254314 |   815904 |      461 |             44 |        6 |         67 |           39 | False   | sports & esports |
-|     22 | lllllllIlll            |  226754 |  2989841 |     1883 |             20 |       30 |         43 |           53 | True    | sports & esports |
-|     23 | RJW1                   |  224583 |   986666 |      738 |             18 |        7 |         57 |           40 | True    | other            |
-|     24 | ethanaz                |  210951 |  4195104 |      150 |           5298 |       19 |         42 |          154 | False   | sports & esports |
-|     25 | qiu3                   |  207657 |  1705991 |      407 |            103 |       27 |         63 |           29 | False   | other            |
+|      1 | mooseborzoii           | 2287357 | 34314096 |     4810 |             32 |      699 |         50 |           47 | True    | sports & esports |
+|      2 | joseph00677            | 1581558 |  9916428 |      113 |            794 |        5 |         60 |           73 | False   | other            |
+|      3 | Papeasy                |  702882 |      717 |      168 |              2 |        1 |          0 |            0 | True    | crypto           |
+|      4 | HomeRunHazard          |  689869 | 26198475 |     4391 |             36 |      140 |          4 |           13 | False   | sports & esports |
+|      5 | fortnitethegoat667     |  688580 | 11358389 |     3102 |             17 |       20 |         45 |           46 | False   | sports & esports |
+|      6 | e46m3                  |  671360 |   385082 |     2164 |             10 |      132 |         12 |            6 | True    | other            |
+|      7 | omnibus-076daa         |  627693 |  9342045 |     3884 |             36 |      104 |          2 |           14 | False   | sports & esports |
+|      8 | BillyGating            |  616422 |   993218 |       94 |            169 |        5 |         60 |           54 | False   | sports & esports |
+|      9 | Bigggggggg             |  572231 |  1197192 |     3838 |              5 |       94 |         11 |            9 | True    | other            |
+|     10 | chubbytoro             |  563507 |  1972138 |     1203 |             20 |       43 |         51 |           27 | True    | sports & esports |
+|     11 | juice-fruit            |  473322 |  3793298 |      417 |             31 |       24 |         62 |           33 | False   | sports & esports |
+|     12 | RN1                    |  402319 | 27256665 |     4245 |             24 |       20 |          5 |           24 | True    | sports & esports |
+|     13 | justwins               |  397234 |   534829 |      194 |             21 |       10 |         60 |           28 | True    | sports & esports |
+|     14 | anoin123               |  392917 |  1183925 |     1634 |             22 |       85 |          2 |           39 | True    | other            |
+|     15 | Ancient-Strike         |  380753 |  1862771 |     1695 |             12 |       23 |         70 |           37 | True    | sports & esports |
+|     16 | 0xBc43c8bfBC4d77c2FC90 |  357888 |  6980224 |     2599 |             27 |       28 |         39 |           59 | True    | sports & esports |
+|     17 | BreakTheBank           |  335826 | 12303235 |     2993 |             15 |       50 |          6 |          222 | True    | sports & esports |
+|     18 | fantasy7788            |  308480 |  6169358 |      311 |            854 |       73 |         42 |          133 | False   | sports & esports |
+|     19 | takeormake             |  304480 |  4749451 |     4749 |             20 |      132 |          5 |           45 | False   | sports & esports |
+|     20 | Diabolical-Prize       |  291736 | 17088316 |     4953 |             34 |       41 |         29 |          312 | False   | sports & esports |
+|     21 | Kch-Temp               |  287720 |  3445415 |      202 |              6 |       19 |         26 |           55 | False   | sports & esports |
+|     22 | cigarettes             |  267071 |  4342634 |     3720 |             10 |        3 |          0 |            0 | True    | sports & esports |
+|     23 | ArielFilipino          |  253922 |   728904 |      276 |             12 |       31 |         65 |           12 | False   | sports & esports |
+|     24 | UnRektCapital          |  250000 |        0 |        0 |              0 |        1 |        100 |           22 | False   |                  |
+|     25 | MKSafe                 |  248296 |    80448 |      206 |             53 |       25 |         28 |            2 | True    | other            |
