@@ -1,0 +1,540 @@
+{
+ "coverage": {
+  "from": "2026-09-19",
+  "to": "2026-10-15",
+  "days": 26.1,
+  "cycles": 4443,
+  "ticks": 4886654,
+  "pairs": 2447,
+  "ticks_both_quoted_pct": 49.0,
+  "ticks_kalshi_unquoted_pct": 49.3,
+  "ticks_poly_unquoted_pct": 31.9,
+  "by_cat": {
+   "games_pre": {
+    "ticks": 1873216,
+    "pairs": 1859,
+    "both_quoted_pct": 65.1
+   },
+   "games_live": {
+    "ticks": 856139,
+    "pairs": 1741,
+    "both_quoted_pct": 2.8
+   },
+   "futures": {
+    "ticks": 1439940,
+    "pairs": 356,
+    "both_quoted_pct": 48.3
+   },
+   "fed": {
+    "ticks": 38087,
+    "pairs": 9,
+    "both_quoted_pct": 78.5
+   },
+   "text": {
+    "ticks": 679272,
+    "pairs": 194,
+    "both_quoted_pct": 62.8
+   }
+  }
+ },
+ "gaps": {
+  "games_pre": {
+   "label": "games, before kick-off",
+   "ticks": 1219613,
+   "pairs": 1823,
+   "abs_gap_median_c": 0.5,
+   "abs_gap_p75_c": 1.0,
+   "abs_gap_p90_c": 1.5,
+   "mean_gap_kalshi_minus_poly_c": -0.02,
+   "share_abs_gt5_pct": 0.3,
+   "share_abs_gt10_pct": 0.1,
+   "pairs_mean_gap_gt5_pct": 0.1,
+   "kalshi_spread_median_c": 1.0,
+   "poly_spread_median_c": 1.0
+  },
+  "games_live": {
+   "label": "games, in play",
+   "ticks": 24076,
+   "pairs": 1088,
+   "abs_gap_median_c": 0.5,
+   "abs_gap_p75_c": 1.0,
+   "abs_gap_p90_c": 2.0,
+   "mean_gap_kalshi_minus_poly_c": -0.08,
+   "share_abs_gt5_pct": 3.5,
+   "share_abs_gt10_pct": 1.5,
+   "pairs_mean_gap_gt5_pct": 1.7,
+   "kalshi_spread_median_c": 1.0,
+   "poly_spread_median_c": 1.0
+  },
+  "futures": {
+   "label": "season futures & awards",
+   "ticks": 695156,
+   "pairs": 220,
+   "abs_gap_median_c": 0.55,
+   "abs_gap_p75_c": 1.05,
+   "abs_gap_p90_c": 2.0,
+   "mean_gap_kalshi_minus_poly_c": 0.15,
+   "share_abs_gt5_pct": 1.2,
+   "share_abs_gt10_pct": 0.2,
+   "pairs_mean_gap_gt5_pct": 0.9,
+   "kalshi_spread_median_c": 1.0,
+   "poly_spread_median_c": 0.1
+  },
+  "fed": {
+   "label": "Fed decisions",
+   "ticks": 29913,
+   "pairs": 8,
+   "abs_gap_median_c": 1.0,
+   "abs_gap_p75_c": 2.0,
+   "abs_gap_p90_c": 3.0,
+   "mean_gap_kalshi_minus_poly_c": 0.14,
+   "share_abs_gt5_pct": 0.8,
+   "share_abs_gt10_pct": 0.0,
+   "pairs_mean_gap_gt5_pct": 0.0,
+   "kalshi_spread_median_c": 1.0,
+   "poly_spread_median_c": 1.0
+  },
+  "text": {
+   "label": "politics & events (text match)",
+   "ticks": 426635,
+   "pairs": 170,
+   "abs_gap_median_c": 1.05,
+   "abs_gap_p75_c": 2.5,
+   "abs_gap_p90_c": 5.0,
+   "mean_gap_kalshi_minus_poly_c": 0.23,
+   "share_abs_gt5_pct": 10.2,
+   "share_abs_gt10_pct": 2.8,
+   "pairs_mean_gap_gt5_pct": 11.2,
+   "kalshi_spread_median_c": 1.0,
+   "poly_spread_median_c": 1.0
+  }
+ },
+ "executable": {
+  "games_pre": {
+   "label": "games, before kick-off",
+   "ticks": 1219613,
+   "crossed_gross_pct": 2.28,
+   "net_positive_pct": 0.39,
+   "net_gt1c_pct": 0.12,
+   "net_when_positive_median_c": 0.33,
+   "net_when_positive_p90_c": 6.09,
+   "pairs_ever_net_positive_pct": 9.2,
+   "route_A_share_pct": 51.0,
+   "fees_round_trip_median_c": 1.94
+  },
+  "games_live": {
+   "label": "games, in play",
+   "ticks": 24076,
+   "crossed_gross_pct": 9.25,
+   "net_positive_pct": 5.53,
+   "net_gt1c_pct": 3.63,
+   "net_when_positive_median_c": 1.84,
+   "net_when_positive_p90_c": 17.92,
+   "pairs_ever_net_positive_pct": 40.3,
+   "route_A_share_pct": 53.9,
+   "fees_round_trip_median_c": 1.44
+  },
+  "futures": {
+   "label": "season futures & awards",
+   "ticks": 695156,
+   "crossed_gross_pct": 50.6,
+   "net_positive_pct": 36.04,
+   "net_gt1c_pct": 6.69,
+   "net_when_positive_median_c": 0.28,
+   "net_when_positive_p90_c": 1.48,
+   "pairs_ever_net_positive_pct": 83.2,
+   "route_A_share_pct": 25.9,
+   "fees_round_trip_median_c": 0.31
+  },
+  "fed": {
+   "label": "Fed decisions",
+   "ticks": 29913,
+   "crossed_gross_pct": 28.92,
+   "net_positive_pct": 7.9,
+   "net_gt1c_pct": 0.58,
+   "net_when_positive_median_c": 0.6,
+   "net_when_positive_p90_c": 0.77,
+   "pairs_ever_net_positive_pct": 100.0,
+   "route_A_share_pct": 47.9,
+   "fees_round_trip_median_c": 2.31
+  },
+  "text": {
+   "label": "politics & events (text match)",
+   "ticks": 426635,
+   "crossed_gross_pct": 45.79,
+   "net_positive_pct": 27.22,
+   "net_gt1c_pct": 13.54,
+   "net_when_positive_median_c": 0.99,
+   "net_when_positive_p90_c": 6.54,
+   "pairs_ever_net_positive_pct": 92.4,
+   "route_A_share_pct": 35.0,
+   "fees_round_trip_median_c": 1.15
+  }
+ },
+ "episodes": {
+  "games_pre": {
+   "label": "games, before kick-off",
+   "episodes": 441,
+   "pair_days": 9151,
+   "minutes_per_pair_day": 2.6,
+   "duration_median_min": 15.0,
+   "duration_p75_min": 65.0,
+   "duration_p90_min": 155.1,
+   "share_single_sample_pct": 32.2,
+   "share_ge_15min_pct": 49.9,
+   "share_ge_60min_pct": 26.5,
+   "gap_ar1_phi": 0.9678,
+   "gap_half_life_min": 106.0
+  },
+  "games_live": {
+   "label": "games, in play",
+   "episodes": 762,
+   "pair_days": 1207,
+   "minutes_per_pair_day": 5.5,
+   "duration_median_min": 5.0,
+   "duration_p75_min": 5.0,
+   "duration_p90_min": 10.0,
+   "share_single_sample_pct": 83.2,
+   "share_ge_15min_pct": 8.1,
+   "share_ge_60min_pct": 1.8,
+   "gap_ar1_phi": 0.7707,
+   "gap_half_life_min": 13.0
+  },
+  "futures": {
+   "label": "season futures & awards",
+   "episodes": 6634,
+   "pair_days": 4739,
+   "minutes_per_pair_day": 261.1,
+   "duration_median_min": 171.3,
+   "duration_p75_min": 360.3,
+   "duration_p90_min": 361.7,
+   "share_single_sample_pct": 10.0,
+   "share_ge_15min_pct": 83.4,
+   "share_ge_60min_pct": 68.8,
+   "gap_ar1_phi": 0.9967,
+   "gap_half_life_min": 1048.0
+  },
+  "fed": {
+   "label": "Fed decisions",
+   "episodes": 102,
+   "pair_days": 197,
+   "minutes_per_pair_day": 59.2,
+   "duration_median_min": 58.1,
+   "duration_p75_min": 194.0,
+   "duration_p90_min": 358.3,
+   "share_single_sample_pct": 18.6,
+   "share_ge_15min_pct": 72.5,
+   "share_ge_60min_pct": 50.0,
+   "gap_ar1_phi": 0.9858,
+   "gap_half_life_min": 242.0
+  },
+  "text": {
+   "label": "politics & events (text match)",
+   "episodes": 3979,
+   "pair_days": 2989,
+   "minutes_per_pair_day": 191.8,
+   "duration_median_min": 80.0,
+   "duration_p75_min": 295.2,
+   "duration_p90_min": 361.4,
+   "share_single_sample_pct": 14.1,
+   "share_ge_15min_pct": 76.4,
+   "share_ge_60min_pct": 57.0,
+   "gap_ar1_phi": 0.9983,
+   "gap_half_life_min": 2050.0
+  }
+ },
+ "survival": {
+  "games_pre": {
+   "5": 1.0,
+   "10": 0.6417,
+   "15": 0.4989,
+   "30": 0.3537,
+   "60": 0.2653,
+   "120": 0.1315,
+   "240": 0.0635
+  },
+  "games_live": {
+   "5": 1.0,
+   "10": 0.1312,
+   "15": 0.0814,
+   "30": 0.0499,
+   "60": 0.0184,
+   "120": 0.0013,
+   "240": 0.0
+  },
+  "futures": {
+   "5": 1.0,
+   "10": 0.8674,
+   "15": 0.8337,
+   "30": 0.7516,
+   "60": 0.6883,
+   "120": 0.5858,
+   "240": 0.4343
+  },
+  "fed": {
+   "5": 1.0,
+   "10": 0.8039,
+   "15": 0.7255,
+   "30": 0.598,
+   "60": 0.5,
+   "120": 0.3922,
+   "240": 0.1863
+  },
+  "text": {
+   "5": 1.0,
+   "10": 0.8183,
+   "15": 0.7643,
+   "30": 0.6569,
+   "60": 0.5705,
+   "120": 0.4534,
+   "240": 0.3041
+  }
+ },
+ "leadlag": {
+  "games_pre": {
+   "label": "games, before kick-off",
+   "samples": 1190662,
+   "pairs": 1823,
+   "corr_same_5min": 0.4033,
+   "corr_kalshi_leads_1": {
+    "est": 0.0061,
+    "lo": -0.0308,
+    "hi": 0.0466
+   },
+   "corr_poly_leads_1": {
+    "est": 0.0096,
+    "lo": -0.0246,
+    "hi": 0.0482
+   },
+   "corr_kalshi_leads_2": 0.0211,
+   "corr_poly_leads_2": 0.0209,
+   "ec_beta_kalshi_toward_poly": {
+    "est": 0.0122,
+    "lo": 0.0074,
+    "hi": 0.0177
+   },
+   "ec_beta_poly_toward_kalshi": {
+    "est": 0.0102,
+    "lo": 0.0073,
+    "hi": 0.0134
+   },
+   "ec_share_adjustment_by_kalshi_pct": {
+    "est": 54.5,
+    "lo": 40.7,
+    "hi": 65.0
+   },
+   "share_samples_kalshi_moved_pct": 4.9,
+   "share_samples_poly_moved_pct": 4.9
+  },
+  "games_live": {
+   "label": "games, in play",
+   "samples": 21993,
+   "pairs": 1088,
+   "corr_same_5min": 0.9477,
+   "corr_kalshi_leads_1": {
+    "est": -0.0532,
+    "lo": -0.0967,
+    "hi": -0.0115
+   },
+   "corr_poly_leads_1": {
+    "est": -0.013,
+    "lo": -0.0593,
+    "hi": 0.0248
+   },
+   "corr_kalshi_leads_2": 0.0096,
+   "corr_poly_leads_2": -0.0058,
+   "ec_beta_kalshi_toward_poly": {
+    "est": 0.1099,
+    "lo": 0.0559,
+    "hi": 0.2031
+   },
+   "ec_beta_poly_toward_kalshi": {
+    "est": 0.0647,
+    "lo": 0.0395,
+    "hi": 0.0941
+   },
+   "ec_share_adjustment_by_kalshi_pct": {
+    "est": 62.9,
+    "lo": 44.3,
+    "hi": 80.2
+   },
+   "share_samples_kalshi_moved_pct": 71.2,
+   "share_samples_poly_moved_pct": 72.9
+  },
+  "futures": {
+   "label": "season futures & awards",
+   "samples": 680095,
+   "pairs": 220,
+   "corr_same_5min": 0.2197,
+   "corr_kalshi_leads_1": {
+    "est": 0.0117,
+    "lo": -0.0387,
+    "hi": 0.0539
+   },
+   "corr_poly_leads_1": {
+    "est": 0.0046,
+    "lo": -0.0695,
+    "hi": 0.0735
+   },
+   "corr_kalshi_leads_2": 0.0205,
+   "corr_poly_leads_2": 0.0451,
+   "ec_beta_kalshi_toward_poly": {
+    "est": 0.0017,
+    "lo": 0.0005,
+    "hi": 0.0041
+   },
+   "ec_beta_poly_toward_kalshi": {
+    "est": -0.0004,
+    "lo": -0.0017,
+    "hi": 0.0018
+   },
+   "ec_share_adjustment_by_kalshi_pct": {
+    "est": 128.6,
+    "lo": -742.0,
+    "hi": 960.9
+   },
+   "share_samples_kalshi_moved_pct": 3.4,
+   "share_samples_poly_moved_pct": 3.7
+  },
+  "fed": {
+   "label": "Fed decisions",
+   "samples": 29250,
+   "pairs": 8,
+   "corr_same_5min": 0.5057,
+   "corr_kalshi_leads_1": {
+    "est": 0.1419,
+    "lo": 0.0064,
+    "hi": 0.1886
+   },
+   "corr_poly_leads_1": {
+    "est": 0.2231,
+    "lo": 0.0114,
+    "hi": 0.3
+   },
+   "corr_kalshi_leads_2": 0.025,
+   "corr_poly_leads_2": 0.0469,
+   "ec_beta_kalshi_toward_poly": {
+    "est": 0.0133,
+    "lo": 0.0084,
+    "hi": 0.0245
+   },
+   "ec_beta_poly_toward_kalshi": {
+    "est": 0.0012,
+    "lo": 0.0,
+    "hi": 0.0036
+   },
+   "ec_share_adjustment_by_kalshi_pct": {
+    "est": 91.6,
+    "lo": 83.4,
+    "hi": 100.1
+   },
+   "share_samples_kalshi_moved_pct": 6.5,
+   "share_samples_poly_moved_pct": 4.2
+  },
+  "text": {
+   "label": "politics & events (text match)",
+   "samples": 416674,
+   "pairs": 170,
+   "corr_same_5min": 0.3306,
+   "corr_kalshi_leads_1": {
+    "est": 0.0374,
+    "lo": 0.005,
+    "hi": 0.068
+   },
+   "corr_poly_leads_1": {
+    "est": 0.0856,
+    "lo": 0.0475,
+    "hi": 0.1232
+   },
+   "corr_kalshi_leads_2": 0.0768,
+   "corr_poly_leads_2": 0.0811,
+   "ec_beta_kalshi_toward_poly": {
+    "est": 0.0012,
+    "lo": 0.0006,
+    "hi": 0.0032
+   },
+   "ec_beta_poly_toward_kalshi": {
+    "est": 0.0005,
+    "lo": 0.0002,
+    "hi": 0.0013
+   },
+   "ec_share_adjustment_by_kalshi_pct": {
+    "est": 70.2,
+    "lo": 59.8,
+    "hi": 81.2
+   },
+   "share_samples_kalshi_moved_pct": 6.2,
+   "share_samples_poly_moved_pct": 6.6
+  }
+ },
+ "resolution": {
+  "kalshi_finalized_pairs": 2036,
+  "both_settled_pairs": 2035,
+  "settlement_mismatch_pairs": 22,
+  "settlement_mismatch_pct": 1.08,
+  "mismatch_by_cat": {
+   "futures": {
+    "pairs": 33,
+    "mismatch": 0
+   },
+   "games": {
+    "pairs": 1883,
+    "mismatch": 12
+   },
+   "text": {
+    "pairs": 119,
+    "mismatch": 10
+   }
+  },
+  "pairs_with_reference_quote": 1868,
+  "calibration_all": {
+   "pairs": 1868,
+   "brier_kalshi": 0.187,
+   "brier_poly": 0.1878,
+   "brier_diff_kalshi_minus_poly": {
+    "est": -0.0007,
+    "lo": -0.0014,
+    "hi": -0.0002
+   },
+   "disagreements_gt5c": 8,
+   "poly_closer_when_disagree_pct": null,
+   "mean_abs_disagreement_c": 0.58
+  },
+  "calibration_by_cat": {
+   "games": {
+    "pairs": 1800,
+    "brier_kalshi": 0.1934,
+    "brier_poly": 0.1938,
+    "brier_diff_kalshi_minus_poly": {
+     "est": -0.0004,
+     "lo": -0.0009,
+     "hi": 0.0001
+    },
+    "disagreements_gt5c": 2,
+    "poly_closer_when_disagree_pct": null,
+    "mean_abs_disagreement_c": 0.5
+   },
+   "text": {
+    "pairs": 48,
+    "brier_kalshi": 0.023,
+    "brier_poly": 0.0374,
+    "brier_diff_kalshi_minus_poly": {
+     "est": -0.0145,
+     "lo": -0.0302,
+     "hi": -0.0024
+    },
+    "disagreements_gt5c": 6,
+    "poly_closer_when_disagree_pct": null,
+    "mean_abs_disagreement_c": 3.76
+   }
+  }
+ },
+ "assumptions": {
+  "quoted": "both sides quoted with spread <= 10c; Kalshi empty side = bid 0 or ask 1",
+  "fees": "Kalshi taker 0.07 x p(1-p) per contract (cent rounding ignored); Polymarket per-market feeSchedule rate x p(1-p), 0.04 when unknown; makers pay nothing on either venue",
+  "arbitrage": "route A: buy YES on Kalshi at the ask, buy NO on Polymarket at 1 - bid; route B: the mirror; net = payout 1 - both legs - both fees",
+  "episodes": "consecutive samples <= 420s apart; duration = span + 300s",
+  "reference_quote": "last valid sample >= 3600s before kick-off (games) or the Kalshi close (others)",
+  "intervals": "95% pair-level bootstrap"
+ }
+}
