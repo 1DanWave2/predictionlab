@@ -29,17 +29,17 @@ owners chose to display. The point is the shape of the money, not the person.
 ## This week
 
 <!-- auto:week -->
-**Snapshot 2026-10-18** · leaderboard window: 7 days · wallets pulled in full: top 25 by weekly PnL
+**Snapshot 2026-10-25** · leaderboard window: 7 days · wallets pulled in full: top 25 by weekly PnL
 
-**#1 BreakTheBank** — $3,116,943 on the weekly leaderboard, $18,626,733 volume.
+**#1 e46m3** — $1,564,153 on the weekly leaderboard, $1,113,921 volume.
 
-- The week in trades: 4932 fills in 91 market(s) over 162.0 hours; 68 fills of $10k+ carry 91% of the money; largest single fill $569,500; median fill $4.
-- The position that made the week: **Broncos** on “Seahawks vs. Broncos” — $1,741,499 at 44.0¢ → $974,457 (41.8% of the week's closed PnL).
-- Biggest loss in the window: **No** on “Will FK Bodø/Glimt win on 2026-10-14?” — $604,755 at 63.5¢ → −$604,755.
-- 28 days, everything counted: 11 wins ($6,937,043) and 133 resolved losers still sitting unredeemed (−$6,363,017) → net $574,026, hit rate 7.6%. The public closed-positions list shows only the wins.
-- Maker or taker: maker (maker rebates $21,840 vs taker rebates $3,822 in the window).
+- The week in trades: 2906 fills in 1407 market(s) over 39.8 hours; 0 fills of $10k+ carry 0% of the money; largest single fill $1,199; median fill $13.
+- The position that made the week: **No** on “Will Harry Kane win the 2026 Ballon d'Or?” — $97,747 at 29.6¢ → $71,389 (24.4% of the week's closed PnL).
+- Biggest loss in the window: **Yes** on “Will Lindsey Horvath win the 2026 Los Angeles mayoral election?” — $2,041 at 6.7¢ → −$2,041.
+- 28 days, everything counted: 23 wins ($457,390) and 214 resolved losers still sitting unredeemed (−$164,000) → net $293,389, hit rate 9.7%. The public closed-positions list shows only the wins.
+- Maker or taker: taker (maker rebates $20 vs taker rebates $26 in the window).
 
-**Top 25 together**: $17,762,682 weekly PnL, the #1 wallet is 17.5% of it. 10 of 25 made more than half their week on one position (median: the best position is 31.0% of the week). 10 of 25 earn more maker than taker rebates. 21 of 25 carry resolved-but-unredeemed losses (1997 positions, −$27,948,882 over 28 days) that the closed-positions list does not show. Categories by notional: sports & esports 17, other 6, unknown 1, crypto 1.
+**Top 25 together**: $19,444,241 weekly PnL, the #1 wallet is 8.0% of it. 5 of 25 made more than half their week on one position (median: the best position is 9.0% of the week). 11 of 25 earn more maker than taker rebates. 23 of 25 carry resolved-but-unredeemed losses (4722 positions, −$30,214,690 over 28 days) that the closed-positions list does not show. Categories by notional: sports & esports 13, politics & macro 8, other 4.
 - Week-over-week churn: needs a second snapshot.
 <!-- /auto:week -->
 
