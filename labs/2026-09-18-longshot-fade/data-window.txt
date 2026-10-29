@@ -1,6 +1,6 @@
-markets with observations: 220550
-event time range: 2025-01-06 17:16:04 .. 2026-10-28 08:13:08
-event time source: {'closed_time': 17904, 'end_date': 81666, 'game_start': 176452, 'deadline_in_question': 1181}
-observations by horizon: {1: 220550, 2: 194954, 3: 179296, 5: 152675, 7: 111461, 14: 46995, 30: 21132}
+markets with observations: 221448
+event time range: 2025-01-06 17:16:04 .. 2026-10-29 08:45:37
+event time source: {'closed_time': 17975, 'end_date': 81838, 'game_start': 177217, 'deadline_in_question': 1184}
+observations by horizon: {1: 221448, 2: 195696, 3: 180016, 5: 153312, 7: 112034, 14: 47099, 30: 21213}
 filters: closed markets, volume >= $5k, clean 0/1 resolution, >=2 daily points, lifetime >= 1.5d
-built: 2026-10-28 09:51 UTC
+built: 2026-10-29 10:10 UTC
