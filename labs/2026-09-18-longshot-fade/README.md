@@ -5,7 +5,7 @@
 **Short answer.** Within a week of the event, no: outcomes priced 5–20¢ on Polymarket win *more* often than their price implies, so selling them loses before costs. The textbook overpricing exists only in the sub-2¢ tail and in longshots priced a month or more out, and there it is worth 0.4–1.7¢ per share: less than a taker's spread, enough for a maker to think about, not enough for a business.
 
 <!-- auto:datawindow -->
-*Data refreshes nightly: as of 2026-11-24 13:57 UTC there are 248,560 markets with observations and 1,051,813 observations. The tables below are recomputed on that data; the prose was written on 2026-09-18 (182,503 markets) and is revised by hand when a headline number changes sign.*
+*Data refreshes nightly: as of 2026-11-25 13:09 UTC there are 249,606 markets with observations and 1,056,554 observations. The tables below are recomputed on that data; the prose was written on 2026-09-18 (182,503 markets) and is revised by hand when a headline number changes sign.*
 <!-- /auto:datawindow -->
 
 ## The question
@@ -53,10 +53,10 @@ Pooling both sides, at the 1-day horizon:
 <!-- auto:table_h1_bands -->
 | Side priced | n | implied | realized | sell gross | sell after fee | sell after fee + 1¢ |
 |---|---|---|---|---|---|---|
-| under 5¢ | 59,370 | 1.36% | 1.53% | -0.17% [-0.27, -0.07] | -0.24% | -1.24% |
-| 5–10¢ | 19,050 | 7.23% | 10.12% | -3.11% [-3.58, -2.67] | -3.47% | -4.50% |
-| 10–20¢ | 32,272 | 14.99% | 18.02% | -3.57% [-4.05, -3.08] | -4.30% | -5.40% |
-| all under 20¢ | 110,692 | 6.35% | 7.82% | -1.57% [-1.74, -1.41] | -1.87% | -2.90% |
+| under 5¢ | 59,541 | 1.37% | 1.54% | -0.17% [-0.27, -0.08] | -0.25% | -1.25% |
+| 5–10¢ | 19,152 | 7.23% | 10.14% | -3.13% [-3.60, -2.67] | -3.49% | -4.52% |
+| 10–20¢ | 32,466 | 14.99% | 18.03% | -3.58% [-4.08, -3.11] | -4.31% | -5.41% |
+| all under 20¢ | 111,159 | 6.36% | 7.84% | -1.58% [-1.75, -1.42] | -1.88% | -2.92% |
 <!-- /auto:table_h1_bands -->
 Returns are per dollar of capital for buying the complement and holding to resolution; brackets are 95% bootstrap intervals resampled by market. At 7 days the picture is the same with wider intervals: under 5¢ +0.44% gross [+0.29, +0.58], 5–10¢ −0.42% [−1.12, +0.32], 10–20¢ −1.37% [−2.28, −0.46]. A taker selling longshots in the week before an event loses money in every band once fees and a 1¢ spread are paid.
 
@@ -67,13 +67,13 @@ Returns are per dollar of capital for buying the complement and holding to resol
 <!-- auto:table_horizons -->
 | Days before event | under 5¢: gross / net | 5–10¢: gross / net | 10–20¢: gross / net |
 |---|---|---|---|
-| 1 | -0.17% / -1.24% (n=59,370) | -3.11% / -4.50% (n=19,050) | -3.57% / -5.40% (n=32,272) |
-| 2 | -0.09% / -1.17% (n=48,566) | -2.77% / -4.17% (n=16,731) | -3.68% / -5.52% (n=28,554) |
-| 3 | -0.04% / -1.13% (n=42,037) | -2.59% / -3.99% (n=15,489) | -3.01% / -4.87% (n=26,527) |
-| 5 | +0.09% / -1.01% (n=33,718) | -2.07% / -3.49% (n=14,269) | -2.57% / -4.45% (n=23,279) |
-| 7 | +0.35% / -0.72% (n=20,835) | -1.29% / -2.68% (n=7,896) | -1.85% / -3.69% (n=12,537) |
-| 14 | +0.57% / -0.50% (n=15,939) | +0.36% / -1.04% (n=4,245) | -0.79% / -2.62% (n=4,729) |
-| 30 | +0.65% / -0.43% (n=10,508) | +1.23% / -0.19% (n=2,880) | +0.89% / -0.94% (n=3,575) |
+| 1 | -0.17% / -1.25% (n=59,541) | -3.13% / -4.52% (n=19,152) | -3.58% / -5.41% (n=32,466) |
+| 2 | -0.10% / -1.18% (n=48,699) | -2.78% / -4.18% (n=16,808) | -3.68% / -5.52% (n=28,707) |
+| 3 | -0.05% / -1.14% (n=42,164) | -2.60% / -4.00% (n=15,559) | -3.01% / -4.87% (n=26,675) |
+| 5 | +0.09% / -1.01% (n=33,790) | -2.07% / -3.49% (n=14,340) | -2.59% / -4.47% (n=23,449) |
+| 7 | +0.35% / -0.72% (n=20,884) | -1.30% / -2.69% (n=7,930) | -1.85% / -3.69% (n=12,678) |
+| 14 | +0.57% / -0.50% (n=15,968) | +0.24% / -1.17% (n=4,286) | -0.97% / -2.79% (n=4,834) |
+| 30 | +0.63% / -0.45% (n=10,519) | +1.13% / -0.29% (n=2,898) | +0.72% / -1.11% (n=3,635) |
 <!-- /auto:table_horizons -->
 
 The further from the event, the more the textbook holds. Selling sub-5¢ longshots grosses +0.07% at 1 day, +0.44% at 7 days, +0.59% at 14 days and +0.69% at 30 days. Thirty days out the 5–10¢ band is priced at 7.07% and wins 5.09% (gross +2.13% [+1.14, +3.12]); the 10–20¢ band is priced at 14.08% and wins 11.81% (gross +2.65% [+1.17, +4.06]). After the taker fee and a 1¢ haircut those become +0.70% [−0.23, +1.66] and +0.79% [−0.61, +2.22] per position, with the capital locked for a month. The breakeven haircut is 0.6¢ per share under 5¢ and 1.7¢ in the 5–20¢ bands, so the edge survives a maker's costs and roughly one tick of a taker's.
@@ -89,17 +89,17 @@ At the 1-day horizon:
 <!-- auto:table_h1_cuts -->
 | Cut | implied | realized | sell gross |
 |---|---|---|---|
-| sports (n = 52,261) | 9.22% | 12.24% | -3.33% [-3.64, -3.02] |
-| politics and macro (n = 7,033) | 4.39% | 5.19% | -0.84% [-1.35, -0.33] |
-| crypto (n = 20,852) | 3.29% | 3.72% | -0.45% [-0.70, -0.19] |
-| culture (n = 4,711) | 2.78% | 2.31% | +0.48% [+0.04, +0.90] |
-| other (n = 25,835) | 4.19% | 3.89% | +0.31% [+0.07, +0.56] |
-| lowest volume tercile | 6.80% | 7.33% | -0.57% [-0.85, -0.29] |
-| highest volume tercile | 5.71% | 7.82% | -2.24% [-2.52, -1.97] |
-| market lifetime over 60 days | 2.43% | 1.80% | +0.65% [+0.43, +0.87] |
-| market lifetime 3–14 days | 7.08% | 9.06% | -2.12% [-2.34, -1.89] |
-| binary market | 7.31% | 10.22% | -3.14% [-3.42, -2.87] |
-| negative-risk group member | 5.56% | 5.87% | -0.33% [-0.51, -0.15] |
+| sports (n = 52,517) | 9.21% | 12.24% | -3.33% [-3.64, -3.02] |
+| politics and macro (n = 7,126) | 4.48% | 5.39% | -0.95% [-1.48, -0.44] |
+| crypto (n = 20,874) | 3.29% | 3.72% | -0.44% [-0.69, -0.20] |
+| culture (n = 4,746) | 2.78% | 2.32% | +0.48% [+0.04, +0.88] |
+| other (n = 25,896) | 4.20% | 3.91% | +0.30% [+0.06, +0.54] |
+| lowest volume tercile | 6.82% | 7.38% | -0.60% [-0.87, -0.32] |
+| highest volume tercile | 5.71% | 7.83% | -2.24% [-2.53, -1.97] |
+| market lifetime over 60 days | 2.50% | 1.94% | +0.57% [+0.33, +0.80] |
+| market lifetime 3–14 days | 7.09% | 9.06% | -2.12% [-2.33, -1.90] |
+| binary market | 7.32% | 10.23% | -3.14% [-3.41, -2.85] |
+| negative-risk group member | 5.58% | 5.91% | -0.35% [-0.53, -0.15] |
 <!-- /auto:table_h1_cuts -->
 The pattern is consistent: overpriced longshots are a thin-market, long-horizon phenomenon. Liquid sports markets run the other way, and so do politics and crypto at short horizons. Removing the 15,799 markets whose event time had to be taken from `closedTime` (the cut most exposed to look-ahead) leaves the sub-5¢ result unchanged: +0.12% gross at 1 day, +0.64% at 7 days.
 
